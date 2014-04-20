@@ -20,7 +20,4 @@ $(document).ready(function() {
         $('#nav-container aside').fadeIn(0);
     });
     
-    $('#search-toggle-btn').click(function() {
-        $('#search-container').slideToggle(revealTime);
-    });
 });

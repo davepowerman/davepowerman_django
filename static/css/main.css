@@ -5,7 +5,11 @@
 }
 
 body {
-    font: normal 14px/1.5em ubuntu, Helvetica;
+    font: normal 18px/2em ubuntu, Helvetica;
+}
+
+h1 {
+    font-size: 1.1em;
 }
 
 article,
@@ -42,7 +46,7 @@ input:focus {
 
 input[type="text"] {
     padding: 6px 12px;
-    height: 16px;
+    height: 26px;
 }
 
 
@@ -54,11 +58,16 @@ input[type="text"] {
 #main-header {
     margin: 0 auto;
     color: #000;
+    border-bottom: 10px solid #eee;
 }
+
+
+
+
 
 #main-header > div.row {
      height: 50px; 
-     background: #2c0;  
+     background: #2c0; 
 }
 
 #header-logo {
@@ -66,14 +75,13 @@ input[type="text"] {
 }
 
 #header-name {
-    height: 100%;
     width: 100%;
-    padding: 13px;
+    height: 100%;
+    padding: 8px; 
 }
 
 #nav-container {
     width: 100%;
-    background: #fff;
     display: none;
 }
 
@@ -83,15 +91,25 @@ input[type="text"] {
 
 #nav-container ul li a {
     display: block;
-    padding: 6px 12px;
+    padding: 20px 12px;
     text-decoration: none;
     color: #333;
     border-bottom: 1px solid #ccc;
+    font-size: 22px;
+}
+
+#nav-container ul li a:active {
+    background: #2c0;
+}
+
+#nav-container ul li a:hover {
+    background: #2c0;
 }
 
 #nav-container aside {
     min-width: 50px;
-    background: #ccc;
+    background: #eee;
+    border-left: 1px solid #ccc;
 }
 
 #main-nav {
@@ -105,28 +123,38 @@ input[type="text"] {
 
 #search-container {
     width: 100%;
-    display: none;
+    border-bottom: 1px solid #ccc;
 }
 
 #search-container input[type="image"] {
     position: absolute;
-    width: 16px;
+    width: 26px;
     left: 0px;
     border: 0px;
-    margin: 4px 14px;
+    margin: 14px 6px;
     padding: 6px 3px;
     border-right: 1px solid #ccc;
     border-radius: 4px 0px 0px 4px;
 }
 
 #search-container input[type="text"] {
-    padding-left: 25px;
-    margin: 3px 10px;
+    padding-left: 35px;
+    font-size: 16px;
+    margin: 13px 5px;
     -webkit-flex: 1;
 }
 
 #page-container {
     height: auto;
+    
+}
+
+#page-title {
+    width: 100%;
+    padding: 4px 0px;
+    text-align: center;
+    background: #444;
+    color: #fff;
 }
 
 #main-page {
@@ -155,8 +183,8 @@ input[type="text"] {
     height: 36px;
     padding: 2px;
     margin: 4px;
-    border: 1px solid #888;
-    background-color: rgba(255,255,255,0.4);
+    border: 1px solid #000;
+    background-color: rgba(255,255,255,0.5);
     border-radius: 6px;
 }
 
@@ -207,4 +235,22 @@ input[type="text"] {
 .span1 {
     width: 100%;
 }
+
+
+
+/*
+#main-header > div.row {
+     height: 50px; 
+     background: #fff; 
+}
+
+
+
+#header-name {
+    width: 100%;
+    height: 30px;
+    padding: 0px;
+    border: 10px solid #000;
+    border: 10px  10px 10px 10px; 
+}*/
 

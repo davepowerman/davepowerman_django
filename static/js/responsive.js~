@@ -16,7 +16,8 @@ $(document).ready(function() {
     $('#user-toggle-btn').click(function() {
         $('#main-nav').slideToggle(revealTime);
         $('#user-nav').slideToggle(revealTime);
-        $('#nav-container aside').height($('#nav-container > div.span1'));
+        $('#nav-container aside').hide();
+        $('#nav-container aside').fadeIn(0);
     });
     
     $('#search-toggle-btn').click(function() {

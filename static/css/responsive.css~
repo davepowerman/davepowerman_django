@@ -5,6 +5,10 @@
 
 /* Full desktop styles: 1000px + */
 @media screen and (min-width: 1000px) {
+    body {
+        font-size: 100%;
+    }
+
     #main-header {
         max-width: 1150px;
         background: #fff;
@@ -23,7 +27,7 @@
         width: auto;
     }
     
-    .header-icon.header-btn {
+    .header-btn {
         display: none;
     }
 }

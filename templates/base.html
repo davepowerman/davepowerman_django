@@ -32,11 +32,7 @@
                 </div>
                 
                 <div id="header-name">
-                    <h2>davepowerman</h2>
-                </div>
-                
-                <div id="search-toggle-btn" class="header-btn">
-                    <img src="{% static 'img/search.png' %}"/>
+                    <h1>davepowerman.com</h1>
                 </div>
                 
                 <div id="nav-toggle-btn" class="header-btn">
@@ -45,7 +41,14 @@
             </div>
             <container id="nav-container" class="row">
                 <div class="span1">
+                    <div id="search-container" class="">
+                        <form action="" method="" class="row">
+                            <input type="text">
+                            <input type="image" src="{% static 'img/search.png' %}">
+                        </form>
+                    </div>
                     <nav id="main-nav">
+                        
                         <ul>
                             <li><a href="{% url 'static:index' %}">Home</a></li>
                             <li><a href="{% url 'static:index' %}">Challenge</a></li>
@@ -68,14 +71,6 @@
                         </div>    
                     </aside>
             </container>
-            
-            <div id="search-container" class="">
-                <form action="" method="" class="row">
-                    <input type="text">
-                    <input type="image" src="{% static 'img/search.png' %}">
-                </form>
-            </div>
-            
         </header>
     </container>
     
@@ -83,7 +78,7 @@
     <container id="page-container">
         <div id="main-page">
             <section>
-                <hgroup>
+                <hgroup id="page-title">
                     {% block title %} {% endblock %}
                 </hgroup>
                 
