@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width">
     
     {% load staticfiles %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="apple-touch-icon" href="{% static 'img/favicon.ico' %}" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-1.11.0.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
-    <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"/>
+    
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/responsive.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
     
     {% block head %} {% endblock %}
 </head>
@@ -16,30 +25,73 @@
 <body>
     
     <container id="header-container">
-        <header class="main-header">
-            <div>
+        <header id="main-header">
+            <div class="row">
+                <div id="header-logo" class="header-icon">
+                    <img src="{% static 'img/power.svg' %}"/>
+                </div>
                 
+                <div id="header-name">
+                    <h2>davepowerman</h2>
+                </div>
+                
+                <div id="search-toggle-btn" class="header-btn">
+                    <img src="{% static 'img/search.png' %}"/>
+                </div>
+                
+                <div id="nav-toggle-btn" class="header-btn">
+                    <img src="{% static 'img/menu.png' %}"/>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li></li>
-                </ul>
-            </nav>
+            <container id="nav-container" class="row">
+                <div class="span1">
+                    <nav id="main-nav">
+                        <ul>
+                            <li><a href="{% url 'static:index' %}">Home</a></li>
+                            <li><a href="{% url 'static:index' %}">Challenge</a></li>
+                            <li><a href="{% url 'static:index' %}">Videos</a></li>
+                            <li><a href="{% url 'static:index' %}">News</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <nav id="user-nav">
+                        <ul>
+                            <li><a href="{% url 'static:index' %}">Sign in</a></li>
+                            <li><a href="{% url 'static:index' %}">Sign out</a></li>
+                            <li><a href="{% url 'static:index' %}">Profile</a></li>                    
+                        </ul>
+                    </nav>
+                </div>
+                    <aside>
+                        <div id="user-toggle-btn" class="header-btn">
+                            <img src="{% static 'img/user.png' %}"/>
+                        </div>    
+                    </aside>
+            </container>
+            
+            <div id="search-container" class="row">
+                <form action="" method="" class="span1 row">
+                    <input type="text">
+                    <input type="image" src="{% static 'img/search.png' %}">
+                </form>
+            </div>
+            
         </header>
     </container>
     
     
     <container id="page-container">
-        <main id="main-page">
+        <div id="main-page">
             <section>
                 <hgroup>
                     {% block title %} {% endblock %}
                 </hgroup>
+                
                 <div id="content">
                     {% block content %} {% endblock %}
                 </div>
             </section>
-        </main>
+        </div>
     </container>
 
 </body>

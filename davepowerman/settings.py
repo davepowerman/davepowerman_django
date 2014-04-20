@@ -58,8 +58,12 @@ WSGI_APPLICATION = 'davepowerman.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'davepowerman',
+        'USER': 'root',
+        'PASSWORD': 'L1nv*she11',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -97,10 +101,13 @@ TEMPLATE_DIRS = (
 )
 
 # heroku configuration
+import socket
+if socket.gethostname() != 'falcon':
 
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+    STATIC_ROOT = 'staticfiles'
+    STATIC_URL = '/static/'
+
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )

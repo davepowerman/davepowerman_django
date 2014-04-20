@@ -1,0 +1,29 @@
+/* Tablet styles: 600px - 999px */
+@media screen and (min-width: 600px) {
+    
+}
+
+/* Full desktop styles: 1000px + */
+@media screen and (min-width: 1000px) {
+    #main-header {
+        max-width: 1150px;
+        background: #fff;
+        margin-top: 0px;
+    }
+    
+    #main-page {
+        max-width: 1150px;
+    }
+    
+    #main-nav {
+        display: block;
+    }
+    
+    #main-nav ul li {
+        width: auto;
+    }
+    
+    .header-icon.header-btn {
+        display: none;
+    }
+}

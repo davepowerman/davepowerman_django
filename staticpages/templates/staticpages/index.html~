@@ -6,5 +6,6 @@
 
 {% block content %}
     index.html
+    {% load staticfiles %}
     <img src="{% static 'img/favicon.ico' %}"/>
 {% endblock %}
