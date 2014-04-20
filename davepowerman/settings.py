@@ -95,3 +95,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,'templates'),
 )
+
+# heroku configuration
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
