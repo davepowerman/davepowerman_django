@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>davepowerman</title>
+    <meta name="viewport" content="width=device-width">
+    
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+    
+    <container id="header-container">
+        <header class="main-header">
+            <div>
+                
+            </div>
+            <nav>
+                <ul>
+                    <li></li>
+                </ul>
+            </nav>
+        </header>
+    </container>
+    
+    
+    <container id="page-container">
+        <main id="main-page">
+            <section>
+                <hgroup>
+                    {% block title %} {% endblock %}
+                </hgroup>
+                <div id="content">
+                    {% block content %} {% endblock %}
+                </div>
+            </section>
+        </main>
+    </container>
+
+</body>
+</html>
