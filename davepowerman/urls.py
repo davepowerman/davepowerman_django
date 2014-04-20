@@ -12,3 +12,9 @@ urlpatterns = patterns('',
     
     url(r'^', include('staticpages.urls', namespace='static')),
 )
+
+from django.conf import settings
+
+urlpatterns += patterns('',
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+)
