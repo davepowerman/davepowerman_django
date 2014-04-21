@@ -46,7 +46,7 @@ input:focus {
 
 input[type="text"] {
     padding: 6px 12px;
-    height: 26px;
+    height: 28px;
 }
 
 
@@ -91,7 +91,7 @@ input[type="text"] {
 
 #nav-container ul li a {
     display: block;
-    padding: 20px 12px;
+    padding: 14px 12px;
     text-decoration: none;
     color: #333;
     border-bottom: 1px solid #ccc;
@@ -128,7 +128,7 @@ input[type="text"] {
 
 #search-container input[type="image"] {
     position: absolute;
-    width: 26px;
+    width: 28px;
     left: 0px;
     border: 0px;
     margin: 14px 6px;
@@ -236,7 +236,13 @@ input[type="text"] {
     width: 100%;
 }
 
+.scroll-vertical {
+    overflow-x: auto;
+}
 
+.content-column {
+    min-width: 80%;
+}
 
 /*
 #main-header > div.row {

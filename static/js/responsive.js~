@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('ready',function() {
 
     // header toggle buttons
     var revealTime = 200;
@@ -20,7 +20,18 @@ $(document).ready(function() {
         $('#nav-container aside').fadeIn(0);
     });
     
-    $('#search-toggle-btn').click(function() {
-        $('#search-container').slideToggle(revealTime);
+    var swipePercentage = 0.90;
+    var swipeTime = 300
+    
+    $('#content .scroll-vertical').on('swipeleft', function(event) {
+        $(this).animate({
+            scrollLeft: $(this).scrollLeft()+($(this).find('.content-column').width())*swipePercentage
+        },swipeTime);
+    });
+    
+    $('#content .scroll-vertical').on('swiperight', function(event) {
+        $(this)animate({
+            scrollLeft: $(this).scrollLeft()-($(this).find('.content-column').width())*swipePercentage
+        },swipeTime);
     });
 });

@@ -5,8 +5,22 @@
 {% endblock %}
 
 {% block content %}
-    index.html
+    <p>index.html</p>
     {% load staticfiles %}
-    <img src="{% static 'img/ubuntu-desktop.svg' %}"/>
+    
+    <div class="row scroll-vertical">
+        <div class="col content-column">
+            <img src="{% static 'img/ubuntu-desktop.svg' %}"/>
+        </div>
+        
+        <div class="col content-column">
+            <img src="{% static 'img/ubuntu-desktop.svg' %}"/>
+        </div>
+        
+        <div class="col content-column">
+            <img src="{% static 'img/ubuntu-desktop.svg' %}"/>
+        </div>
+    </div>
+    
     
 {% endblock %}
