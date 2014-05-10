@@ -120,9 +120,9 @@ if socket.gethostname() != 'falcon':
   #  'default':  dj_database_url.config()
   #}
   DATABASES = {
-    "default": {
-     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    }
+    "default": dj)database_url.config()#{
+     #"ENGINE": "django.db.backends.postgresql_psycopg2",
+    #}
   }
 
   # Honor the 'X-Forwarded-Proto' header for request.is_secure()

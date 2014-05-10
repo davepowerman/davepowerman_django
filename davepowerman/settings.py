@@ -120,7 +120,7 @@ if socket.gethostname() != 'falcon':
   #  'default':  dj_database_url.config()
   #}
   DATABASES = {
-    "default": dj)database_url.config()#{
+    "default": dj_database_url.config()#{
      #"ENGINE": "django.db.backends.postgresql_psycopg2",
     #}
   }
