@@ -67,7 +67,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'L1nv*she11',
         'HOST': '',
-        'PORT': '',
+        'PORT': '3306',
     }
 }
 
@@ -107,20 +107,5 @@ TEMPLATE_DIRS = (
 # heroku configuration
 import socket
 if socket.gethostname() != 'falcon':
-    import dj_database_url
-    DATABASES['default'] =  dj_database_url.config()
-
-    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-    # Allow all host headers
-    ALLOWED_HOSTS = ['*']
-    
-
-    STATIC_ROOT = 'staticfiles'
-    STATIC_URL = '/static/'
-
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
+    import deploy_settings
     
