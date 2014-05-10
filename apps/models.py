@@ -1,0 +1,14 @@
+from django.db import models
+from django.template.defaultfilters import slugify
+
+class App(models.Model):
+  name = models.CharField(max_length=50)
+  thumbnail = models.ImageField(upload_to='images/',blank=True)
+  slug = models.SlugField(max_length=200,unique=True)
+  date = models.DateTimeField(auto_now_add=True)
+
+  def setSlug(self,slug):
+    self.slug = slugify(slug)
+
+  def __unicode__(self):
+      return self.name

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{{ APP_STATIC_URL }}/css/main.css"/>
+  <script src="{{ APP_STATIC_URL }}/js/main.js"></script>
+  
+{% endblock %}
+
+{% block title %}{{ app.name }}{% endblock %}
+
+{% block left_btn %}
+<a href="{% url 'apps:index' %}">
+  <button class="btn">&laquo; Back</button>
+</a>
+{% endblock %}
+
+{% block content %}
+<style>
+  .app-container{
+    top:30px;
+    text-align:center;
+  }
+  
+  .app-container-inner{
+    margin:0 auto;
+    padding:20px;
+    /*border:1px solid #ddd;
+    
+    border-radius:20px;*/
+  }
+</style>
+
+<div class="app-container">
+  <div class="app-container-inner">
+  {% if app_ready %}
+    {% include template %}
+  {% else %}
+    <p class="message message-success"><b>Your app is created!</b> Please create this file: {{ template }}</p>
+  {% endif %}
+  </div>
+</div>
+   
+{% endblock %}
+
+

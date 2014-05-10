@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ app.name }}{% endblock %}
+
+{% block content %}
+<h3>Please create the following path: {{ app.template }}</h3>
+{% endblock %}
+
+

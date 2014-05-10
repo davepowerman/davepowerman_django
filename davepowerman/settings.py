@@ -26,6 +26,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+APPEND_SLASH = False
+
+FILE_UPLOAD_PERMISSIONS = 0644
 
 # Application definition
 
@@ -37,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'staticpages',
+    'apps',
 )
 
 MIDDLEWARE_CLASSES = (

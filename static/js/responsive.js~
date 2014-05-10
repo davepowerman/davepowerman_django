@@ -1,11 +1,39 @@
-$(document).on('ready',function() {
-
-    // header toggle buttons
-    var revealTime = 200;
+$(document).on('ready',function(){
     
-    $('#nav-toggle-btn').click(function() {
-        $('#nav-container').slideToggle(revealTime);
-        $('#main-nav').slideToggle(revealTime);
+    
+    
+    function respond(){
+      var w = $(document).width();
+    
+      if(w<600){
+        $('.thumbnail').width($('.thumbnail').width()*0.60);
+        $('.thumbnail').height($('.thumbnail').height()*0.60);
+      }
+      
+      if(w<900){
+      
+      }
+      
+      if(w<1200){
+      
+      }
+      
+      else {
+      
+      }
+    }
+    
+    $(window).resize();
+    respond();
+    
+    // header toggle buttons
+    var revealTime = 100;
+    
+    $('#nav-toggle-btn').click(function(){
+        toggleShade()
+        moveAfterShade('#main-header');
+        $('#nav-container').toggle(revealTime);
+        $('#main-nav').toggle(revealTime);
         console.log($('#nav-container').css('display'));
         if($('#nav-container').css('display') != '-webkit-flex') { 
             $('#nav-container').css('display','flex');      
@@ -13,25 +41,25 @@ $(document).on('ready',function() {
         }
     });
     
-    $('#user-toggle-btn').click(function() {
-        $('#main-nav').slideToggle(revealTime);
-        $('#user-nav').slideToggle(revealTime);
+    $('#user-toggle-btn').click(function(){
+        $('#main-nav').toggle(revealTime);
+        $('#user-nav').toggle(revealTime);
         $('#nav-container aside').hide();
         $('#nav-container aside').fadeIn(0);
     });
-    
+    /*
     var swipePercentage = 0.90;
     var swipeTime = 300
     
-    $('#content .scroll-vertical').on('swipeleft', function(event) {
+    $('#content .scroll-vertical').on('swipeleft', function(event){
         $(this).animate({
             scrollLeft: $(this).scrollLeft()+($(this).find('.content-column').width())*swipePercentage
         },swipeTime);
     });
     
-    $('#content .scroll-vertical').on('swiperight', function(event) {
-        $(this)animate({
+    $('#content .scroll-vertical').on('swiperight', function(event){
+        $(this).animate({
             scrollLeft: $(this).scrollLeft()-($(this).find('.content-column').width())*swipePercentage
         },swipeTime);
-    });
+    });*/
 });

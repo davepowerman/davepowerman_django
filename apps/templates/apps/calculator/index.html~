@@ -1,0 +1,66 @@
+
+<style>
+  .calc-container .btn{
+    width:60px;
+    margin:2px;
+    height:40px;
+    font-size:16px;
+    font-family:monospace;
+    line-height:1em;
+  }
+  #calc-output{
+    width:324px;
+    font-size:24px;
+    padding:5px 2px;
+    color:#444;
+    margin-bottom:3px;
+  }
+</style>
+<div id="calc-container">
+    
+  <input type="text>" id="calc-output">
+  
+  <p>
+    <button class="btn">exp</button>
+    <button class="btn">π</button>
+    <button class="btn">(</button>
+    <button class="btn">)</button>
+    <button class="btn btn-error">C</button>
+  </p>
+  
+  <p>
+    <button class="btn">√</button>
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn">&divide;</button>
+  </p>
+
+  <p>
+    <button class="btn">sin</button>
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn">&times;</button>
+    
+  </p>
+
+
+  <p>
+    <button class="btn">cos</button>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn">-</button>
+    
+  </p>
+
+  <p>
+    <button class="btn">tan</button>
+    <button class="btn">0</button>
+    <button class="btn">.</button>
+    <button class="btn btn-success">=</button>
+    <button class="btn">+</button>
+  </p>
+
+</div>

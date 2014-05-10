@@ -10,21 +10,22 @@
     <link rel="apple-touch-icon" href="{% static 'img/favicon.ico' %}" />
     
     
-    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.mobile-1.4.2.min.css' %}"/>
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.mobile-1.4.2.min.css' %}"/>-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"/>
     
-    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
-    <script src="{% static 'js/jquery.mobile-1.4.2.min.js' %}"></script>
-    <script src="{% static 'js/responsive.js' %}"></script>
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <!--<script src="{% static 'js/jquery.mobile-1.4.2.min.js' %}"></script>-->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/responsive.js' %}"></script>
+    
     
     
     {% block head %} {% endblock %}
 </head>
 
 <body>
-    
+    <div id="body-shade"></div>
     <container id="header-container">
         <header id="main-header">
             <div class="row">
@@ -41,7 +42,7 @@
                 </div>
             </div>
             <container id="nav-container" class="row">
-                <div class="span1">
+                <div class="span1 ">
                     <div id="search-container" class="">
                         <form action="" method="" class="row">
                             <input type="text">
@@ -53,6 +54,7 @@
                         <ul>
                             <li><a href="{% url 'static:index' %}">Home</a></li>
                             <li><a href="{% url 'static:index' %}">Challenge</a></li>
+                            <li><a href="{% url 'apps:index' %}">Apps</a></li>
                             <li><a href="{% url 'static:index' %}">Videos</a></li>
                             <li><a href="{% url 'static:index' %}">News</a></li>
                         </ul>
@@ -79,9 +81,14 @@
     <container id="page-container">
         <div id="main-page">
             <section>
-                <hgroup id="page-title">
-                    {% block title %} {% endblock %}
-                </hgroup>
+                <div id="page-title" row>
+                    <span>{% block left_btn %}{% endblock %}</span>
+                    
+                    <hgroup flex>
+                      <h2>{% block title %} {% endblock %}</h2p>
+                    </hgroup>
+                    <span>{% block right_btn %}{% endblock %}</span>
+                </div>
                 
                 <div id="content">
                     {% block content %} {% endblock %}

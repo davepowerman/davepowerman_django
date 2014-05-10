@@ -13,5 +13,7 @@ urlpatterns = patterns('',
     
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/var/www/davepowerman/static/'}),
     
-    url(r'^', include('staticpages.urls', namespace='static')),
+    url(r'^$', include('staticpages.urls', namespace='static')),
+    
+    url('^apps', include('apps.urls', namespace='apps')),
 )

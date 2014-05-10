@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Apps{% endblock %}
+
+{% block content %}
+<div>
+    <form action="{% url 'apps:new' %}" method="post"  class="inline-form"  
+    {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}> 
+      {% csrf_token %}
+      <p>Name: {{ form.name }}
+      Thumbnail: {{ form.thumbnail }}
+      <button onclick="submit()" class="btn btn-success">Go!</button>
+    </form>
+  </div>
+<ul id="app-list"> 
+  {% for app in apps %}
+  <li>
+      <div class="app-li"> 
+        <div row>    
+          <div>
+            <a href="{% url 'apps:run' app.id %}" class="thumbnail thumbnail-md">
+                <img src="{{ MEDIA_URL }}{{ app.thumbnail }}" />
+            </a>
+          </div>
+          
+          <div class="flex desc">
+            <h4> <a href="{% url 'apps:run' app.id %}">{{ app.name }}</a></h4>
+            <p class="byline">{{ app.date }}</p>
+          </div>
+          
+           <div class="controls" col>
+            <p col><a href="{% url 'apps:delete' app.id %}" class="btn btn-error">Delete app</a></p>
+            <p col><a href="{% url 'apps:run' app.id %}" class="btn">Open app</a></p>
+          </div>  
+        </div>       
+      </div>
+  </li>
+  {% endfor %}
+</ul>    
+{% endblock %}
+
+
