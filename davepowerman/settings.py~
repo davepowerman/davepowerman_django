@@ -33,23 +33,23 @@ FILE_UPLOAD_PERMISSIONS = 0644
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'staticpages',
-    'apps',
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  'staticpages',
+  'apps',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.contrib.sessions.middleware.SessionMiddleware',
+  'django.middleware.common.CommonMiddleware',
+  'django.middleware.csrf.CsrfViewMiddleware',
+  'django.contrib.auth.middleware.AuthenticationMiddleware',
+  'django.contrib.messages.middleware.MessageMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'davepowerman.urls'
@@ -61,14 +61,14 @@ WSGI_APPLICATION = 'davepowerman.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'davepowerman',
-        'USER': 'root',
-        'PASSWORD': 'L1nv*she11',
-        'HOST': '',
-        'PORT': '3306',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'davepowerman',
+    'USER': 'root',
+    'PASSWORD': 'L1nv*she11',
+    'HOST': '',
+    'PORT': '3306',
+  }
 }
 
 # Internationalization
@@ -101,27 +101,27 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # template directories
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,'templates'),
+  os.path.join(BASE_DIR,'templates'),
 )
 
 # heroku configuration
 import socket
 if socket.gethostname() != 'falcon':
-    #import deploy_settings
+  #import deploy_settings
   import dj_database_url
-  import os
-  BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+  #import os
+  #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
   DEBUG = False
 
   TEMPLATE_DEBUG = False
 
   DATABASES = {
-    'default':  dj_database_url.config()
+  'default':  dj_database_url.config()
   }
   #DATABASES = {
   #  "default": {
-  #     "ENGINE": "django.db.backends.postgresql_psycopg2",
+  #   "ENGINE": "django.db.backends.postgresql_psycopg2",
   #  }
   #}
 
@@ -136,6 +136,6 @@ if socket.gethostname() != 'falcon':
   STATIC_URL = '/static/'
 
   STATICFILES_DIRS = (
-      os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
   )
-    
+  
