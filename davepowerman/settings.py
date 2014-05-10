@@ -112,13 +112,9 @@ if socket.gethostname() != 'falcon':
   #import os
   #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-  DEBUG = False
+  DEBUG = True
 
   TEMPLATE_DEBUG = False
-
-  #DATABASES = {
-  #  'default':  dj_database_url.config()
-  #}
   DATABASES = {
     "default": dj_database_url.config()#{
      #"ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -129,7 +125,7 @@ if socket.gethostname() != 'falcon':
   SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
   # Allow all host headers
-  ALLOWED_HOSTS = ['davepowerman-django.herokupapp.com']
+  ALLOWED_HOSTS = ['*']
 
 
   STATIC_ROOT = 'staticfiles'
