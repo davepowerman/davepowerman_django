@@ -1,13 +1,11 @@
 $(document).on('ready',function(){
-    
-    
+    isMobile = false;
     
     function respond(){
       var w = $(document).width();
     
-      if(w<600){
-        $('.thumbnail').width($('.thumbnail').width()*0.60);
-        $('.thumbnail').height($('.thumbnail').height()*0.60);
+      if(w<660){
+        isMobile = true;
       }
       
       if(w<900){
@@ -29,23 +27,40 @@ $(document).on('ready',function(){
     // header toggle buttons
     var revealTime = 100;
     
-    $('#nav-toggle-btn').click(function(){
-        toggleShade()
-        moveAfterShade('#main-header');
-        $('#nav-container').toggle(revealTime);
-        $('#main-nav').toggle(revealTime);
-        console.log($('#nav-container').css('display'));
-        if($('#nav-container').css('display') != '-webkit-flex') { 
-            $('#nav-container').css('display','flex');      
-            $('#nav-container').css('display','-webkit-flex');
-        }
+    
+
+    $('.menu-toggle').click(function(){
+      //if($('#nav-account ul').hasClass('showing'))
+      //  $('#nav-account ul').toggleClass('showing');
+      $('#nav-main > ul').toggleClass('showing');
     });
     
-    $('#user-toggle-btn').click(function(){
-        $('#main-nav').toggle(revealTime);
-        $('#user-nav').toggle(revealTime);
-        $('#nav-container aside').hide();
-        $('#nav-container aside').fadeIn(0);
+    $('.account-toggle').click(function(){
+      //if($('#nav-main ul').hasClass('showing'))
+      //  $('#nav-main ul').toggleClass('showing');
+      $('#nav-account').toggleClass('showing');   
+    });
+    
+    
+    
+    
+    $('.search-toggle').click(function(){
+      $('header .searchbar').toggleClass('showing');
+    });
+    
+    
+    $('#nav-account').removeClass('showing');
+    
+    $('.user').click(function(){
+      $('#nav-account').toggleClass('showing');
+      
+      if(!isMobile){
+        $('.user').mouseleave(function(){
+          if($('#nav-account').hasClass('showing'))
+          $('#nav-account').toggleClass('showing');
+          $('.user').unbind('mouseleave');
+        });
+      }
     });
     /*
     var swipePercentage = 0.90;

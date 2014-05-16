@@ -3,7 +3,6 @@
 {% block title %}Create new app{% endblock %}
 
 {% block content %}
-  <div>
     <form action="{% url 'apps:new' %}" method="post" class="inline-form" 
     {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}> 
       {% csrf_token %}
@@ -11,7 +10,6 @@
       <p>Thumbnail: {{ form.thumbnail }}</p>
       <button onclick="submit()" class="btn btn-success">Go!</button>
     </form>
-  </div>
    
 {% endblock %}
 

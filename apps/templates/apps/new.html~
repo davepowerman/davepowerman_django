@@ -9,7 +9,7 @@
       {% csrf_token %}
       <p>Name: {{ form.name }}</p>
       <p>Thumbnail: {{ form.thumbnail }}</p>
-      <button onclick="submit()" class="btn ">Go!</button>
+      <button onclick="submit()" class="btn btn-success">Go!</button>
     </form>
   </div>
    
