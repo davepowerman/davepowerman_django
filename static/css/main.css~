@@ -133,6 +133,10 @@ canvas:active{
   background:#fff;
   overflow:hidden;
   z-index:3;
+  transition: max-height 0.4s;
+  -webkit-transition: max-height 0.4s;
+  -moz-transition: max-height 0.4s;
+  -o-transition: max-height 0.4s;
 }
 
 #nav-account.showing{
