@@ -132,7 +132,6 @@ canvas:active{
   width:100%;
   max-height:0px;
   background:#fff;
-  overflow:hidden;
   z-index:3;
   transition: max-height 0.4s;
   -webkit-transition: max-height 0.4s;
@@ -158,6 +157,10 @@ canvas:active{
   background-color:#ccc;
 }
 
+#page-container{
+  width:100%;
+  margin:0 auto;
+}
 
 #page-title{
   background-color:#444;
@@ -187,11 +190,6 @@ canvas:active{
   right:5px;
   top:3px;
   z-index:2;
-}
-
-
-#main-page{
-  margin:0 auto;
 }
 
 #content{
@@ -299,26 +297,54 @@ canvas:active{
   min-width:80%;
 }
 
-#app-list{
+.list-ui{
   list-style:none;
+  width:100%;
 }
 
-.app-li{
-  padding:12px;
-  background:#eee;
-  border-bottom:1px solid #ccc;
-}
-
-.app-li .controls{
-  width:auto;
-}
-
-.app-li .thumbnail{
+.row-li{
+  padding:20px;
+  background:#fff;
+  border-bottom:1px solid #dfdfdf;
   
 }
 
-.app-li .desc{
+.row-li:nth-child(even){
+  background:#eee;
+}
+
+.row-li .controls{
+  width:auto;
+}
+
+.row-li .thumbnail{
+  display:none;
+}
+
+.row-li .desc{
   padding:0 3px 0 20px;
+  
+}
+
+.aside-container{
+  margin:20px;
+  
+}
+
+aside.blog-filter{
+  border:1px solid #ccc;
+  border-radius:4px;
+  margin-bottom:30px;
+}
+
+aside.blog-filter h3{
+  text-align:center;
+  padding:15px 0;
+}
+
+aside.blog-filter .category{
+  border-top:1px solid #ccc;
+  padding:15px;
 }
 
 .byline{
@@ -337,7 +363,7 @@ canvas:active{
   font-size:16px;
   line-height:1;
   cursor:pointer;
-  white-space:nowrap
+  white-space:nowrap;
   vertical-align:middle;
 }
 

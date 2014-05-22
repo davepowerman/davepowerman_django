@@ -22,11 +22,20 @@
     font-size:1em;
   }
 
-  #header-main .header-inner{
-    background:#fff;
+  #header-main{
+    border-bottom:1px solid #ccc;
   }
 
+  #header-main .header-inner{
+    background:#fff;
+    max-width:1170px;
+    border-bottom:2px solid #2c0;
+  }
 
+  #header-main nav{
+    max-width:1170px;
+    margin:0 auto;
+  }
 
   #header-main nav > ul{
     max-height:100px;
@@ -35,6 +44,7 @@
 
   #header-main nav > ul > li{
     width:auto;
+    border:0;
   }
   
   #nav-account{
@@ -61,8 +71,33 @@
     background-color:#ccc;
   }
   
-  #main-page{
-    max-width:1150px;
+  #page-container{
+    max-width:1170px;
+    margin:0 auto;
+  }
+  
+  #page-title{
+    display:none;
+  }
+  
+  .row-li .thumbnail{
+    display:block;
+  }
+  
+  .aside-container{
+    width:200px;
+    margin:0;
+    margin-left:30px;
+  }
+  
+  aside.blog-filter{
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+  
+  aside.blog-filter .category{
+    border:0;
+    padding:4px 10px;
   }
   
   .user{

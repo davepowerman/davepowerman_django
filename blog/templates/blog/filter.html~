@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ blog.name }}{% endblock %}
+
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  <p>{{ articles|length }} article{{ articles|pluralize }}</p>
+  
+  <ul class="list-ui"> 
+    {% for article in articles %}
+      <li>
+        <div class="row-li"> 
+          <div row>    
+            <div>
+              <a href="{% url 'blog:read' article.id %}" class="thumbnail thumbnail-lg">
+                  <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
+              </a>
+            </div>
+            
+            <div class="flex desc">
+              <h4> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
+              <p class="byline">{{ article.date }}</p>
+            </div>
+            
+             <div class="controls" col>
+              <p col><a href="{% url 'blog:delete' article.id %}" class="btn btn-error">Delete</a></p>
+<!--p col><a href="{% url 'blog:read' article.id %}" class="btn">Open</a></p>-->
+            </div>  
+          </div>       
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <aside class="categories">
+      <h3>Categories</h3>
+      {% for category in categories %}
+      <p><a href="{% url 'blog:filter' category.id %}">{{ category.name }}</a></p>
+      {% endfor %}
+    </aside>
+{% endblock %}

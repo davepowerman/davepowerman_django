@@ -105,7 +105,7 @@
         <li><a href="{% url 'static:index' %}">Challenge</a></li>
         <li><a href="{% url 'apps:index' %}">Apps</a></li>
         <li><a href="{% url 'static:index' %}">Videos</a></li>
-        <li><a href="{% url 'static:index' %}">News</a></li>
+        <li><a href="{% url 'blog:index' %}">News</a></li>
         <li class="user"> 
           <a href="#">Your Account &dtrif;</a>
           <ul id="nav-account">
@@ -120,9 +120,8 @@
   
   <div class="shade"></div>
   
-  <container id="page-container">
-      <section>
-        <div id="page-title" >
+  <div id="page-container">
+        <div id="page-title">
           <span class="left">{% block left_btn %}{% endblock %}</span>
           
           <hgroup>
@@ -134,8 +133,7 @@
         <div id="content">
           {% block content %} {% endblock %}
         </div>
-      </section>
-  </container>
+  </div>
 
 </body>
 </html>

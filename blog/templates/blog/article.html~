@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block content %}
+  <div row>
+    <span class="thumbnail thumbnail-sm">
+        <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
+    </span>
+    <h1>{{ article.name }}</h1>
+    <p class="byline">by <a href="#">"Anonymous Author"</a> | {{ article.date }}</p>
+  </div>
+  
+  <p>{{ article.body }}</p>
+{% endblock %}

@@ -12,11 +12,11 @@
   $('#c').ready(function(){
     var c = $('#c')[0],
       ctx = c.getContext('2d');
-    
-    c.width = 300;
-    c.height = 200;
-    
-    ctx.fillStyle = '#ddd';
+      
+    $(c).width('100%');
+    $(c).height('auto');
+      
+    ctx.fillStyle = '#f8f8f8';
     ctx.fillRect(0,0,c.width,c.height);
     
     c.x = c.getBoundingClientRect().left;
@@ -50,6 +50,8 @@
     
     $('#clear-canvas').click(function(){
       ctx.clearRect(0,0,c.width,c.height);
+      ctx.fillStyle = '#f8f8f8';
+      ctx.fillRect(0,0,c.width,c.height);
     });
   });
 </script>

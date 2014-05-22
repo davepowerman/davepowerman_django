@@ -1,0 +1,9 @@
+from django.conf.urls import patterns,url
+
+urlpatterns = patterns('',
+    url(r'^$',                            'blog.views.index', name='index'),
+    url(r'^/new$',    'blog.views.new', name='new'),
+    url(r'^/categories/(?P<category_id>[0-9]+)$',    'blog.views.filter', name='filter'),
+    url(r'^/(?P<article_id>[0-9]+)$', 'blog.views.read',   name='read'),
+    url(r'^/(?P<article_id>[0-9]+)/delete$', 'blog.views.delete', name='delete'),
+)

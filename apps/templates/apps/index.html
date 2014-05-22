@@ -4,18 +4,18 @@
 
 {% block content %}
 <div>
-    <form action="{% url 'apps:new' %}" method="post"  class="inline-form"  
-    {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}> 
-      {% csrf_token %}
-      <p>Name: {{ form.name }}
-      Thumbnail: {{ form.thumbnail }}
-      <button onclick="submit()" class="btn btn-success">Go!</button>
-    </form>
-  </div>
-<ul id="app-list"> 
+  <form action="{% url 'apps:new' %}" method="post"  class="inline-form"  
+  {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}> 
+    {% csrf_token %}
+    <p>Name: {{ form.name }}
+    Thumbnail: {{ form.thumbnail }}
+    <button onclick="submit()" class="btn btn-success">Go!</button>
+  </form>
+</div>
+<ul class="list-ui"> 
   {% for app in apps %}
   <li>
-      <div class="app-li"> 
+      <div class="row-li"> 
         <div row>    
           <div>
             <a href="{% url 'apps:run' app.id %}" class="thumbnail thumbnail-lg">
@@ -29,8 +29,8 @@
           </div>
           
            <div class="controls" col>
-            <p col><a href="{% url 'apps:delete' app.id %}" class="btn btn-error">Delete app</a></p>
-            <p col><a href="{% url 'apps:run' app.id %}" class="btn">Open app</a></p>
+            <p col><a href="{% url 'apps:delete' app.id %}" class="btn btn-error">Delete</a></p>
+            <p col><a href="{% url 'apps:run' app.id %}" class="btn">Open</a></p>
           </div>  
         </div>       
       </div>

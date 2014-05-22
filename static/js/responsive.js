@@ -6,6 +6,9 @@ $(document).on('ready',function(){
     
       if(w<=660){
         isMobile = true;
+        $('.row.article-list').removeClass('row')
+        $('.row.article-list').addClass('column')
+        
       }
       
       if(w<=900){
@@ -54,7 +57,7 @@ $(document).on('ready',function(){
     $('.user').click(function(){
       $('#nav-account').toggleClass('showing');
       
-      if(!isMobile){
+      if(!isMobile && 0){
         $('.user').mouseleave(function(){
           if($('#nav-account').hasClass('showing'))
           $('#nav-account').toggleClass('showing');
