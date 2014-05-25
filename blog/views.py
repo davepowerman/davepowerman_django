@@ -8,7 +8,7 @@ from posts.models import Comment, Reply, Category
 def index(request):
   blog = Blog.objects.get(id=1)
   blog.article_set = blog.article_set.order_by('date')
-  categories = Category.objects.all()
+  categories = Category.objects.filter(parent=None)
   context = {'blog':blog,"categories":categories}
   return render(request,'blog/index.html',context)
 

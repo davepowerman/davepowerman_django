@@ -8,7 +8,7 @@ class Post(models.Model):
   date = models.DateTimeField(auto_now_add=True)
   rating = models.IntegerField(default=0)
   rank = models.IntegerField(default=0)
-  category = models.OneToOneField('Category')
+  category = models.ForeignKey('Category')
   
   def __unicode__(self):
     return self.name
@@ -16,6 +16,7 @@ class Post(models.Model):
 
 class Category(models.Model):
   name = models.CharField(max_length=75)
+  parent = models.ForeignKey('Category',blank=True)
   prefix = models.CharField(max_length=3,default=str(name)[:3])
   
   def __unicode__(self):

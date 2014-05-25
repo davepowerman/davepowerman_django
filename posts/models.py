@@ -16,6 +16,7 @@ class Post(models.Model):
 
 class Category(models.Model):
   name = models.CharField(max_length=75)
+  parent = models.ForeignKey('Category',blank=True,null=True)
   prefix = models.CharField(max_length=3,default=str(name)[:3])
   
   def __unicode__(self):

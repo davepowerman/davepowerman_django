@@ -16,6 +16,7 @@
   
   <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
   <!--<script src="{% static 'js/jquery.mobile-1.4.2.min.js' %}"></script>-->
+  
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/responsive.js' %}"></script>
   
@@ -76,64 +77,64 @@
       </container>
     </header>
   </container>-->
-  
+ 
   <header id="header-main">
-    <div class="header-inner">
-      <div class="row" id="header-logo">
-        
-        <a href="{% url 'static:index' %}">
-          <img src="{% static 'img/power.svg' %}" class="logo"/>
-        </a>
-        <h3>davepowerman.com</h3>
-        
-        
-        <div class="mobile-icons">
-          <div class="mobile-icon search-toggle">               
-            <img src="{% static 'img/search.png' %}"/>
-          </div>
+    <div id="header-container">
+      <div class="header-inner">
+        <div class="row" id="header-logo">
           
-          <div class="mobile-icon menu-toggle">
-            <img src="{% static 'img/menu.png' %}"/>
+          <a href="{% url 'static:index' %}">
+            <img src="{% static 'img/power.svg' %}" class="logo"/>
+          </a>
+          <h3>davepowerman.com</h3>
+          
+          
+          <div class="mobile-icons">
+            <div class="mobile-icon search-toggle">               
+              <img src="{% static 'img/search.png' %}"/>
+            </div>
+            
+            <div class="mobile-icon menu-toggle">
+              <img src="{% static 'img/menu.png' %}"/>
+            </div>
           </div>
         </div>
+        <nav  id="nav-main">
+          <ul>
+            <li><a href="{% url 'static:index' %}">Home</a></li>
+            <li><a href="{% url 'static:index' %}">Challenge</a></li>
+            <li><a href="{% url 'apps:index' %}">Apps</a></li>
+            <li><a href="{% url 'static:index' %}">Videos</a></li>
+            <li><a href="{% url 'blog:index' %}">News</a></li>
+            <li class="user"> 
+              <a href="#">Your Account &dtrif;</a>
+              <ul id="nav-account">
+                <li><a href="{% url 'static:index' %}">Sign in</a></li>
+                <li><a href="{% url 'static:index' %}">Sign out</a></li>
+                <li><a href="{% url 'static:index' %}">Profile</a></li>  
+              </ul>                 
+            </li>              
+          </ul>
+        </nav>
       </div>
     </div>
-    
-    <nav  id="nav-main">
-      <ul>
-        <li><a href="{% url 'static:index' %}">Home</a></li>
-        <li><a href="{% url 'static:index' %}">Challenge</a></li>
-        <li><a href="{% url 'apps:index' %}">Apps</a></li>
-        <li><a href="{% url 'static:index' %}">Videos</a></li>
-        <li><a href="{% url 'blog:index' %}">News</a></li>
-        <li class="user"> 
-          <a href="#">Your Account &dtrif;</a>
-          <ul id="nav-account">
-            <li><a href="{% url 'static:index' %}">Sign in</a></li>
-            <li><a href="{% url 'static:index' %}">Sign out</a></li>
-            <li><a href="{% url 'static:index' %}">Profile</a></li>  
-          </ul>                 
-        </li>              
-      </ul>
-    </nav>
   </header>
   
   <div class="shade"></div>
   
-  <container id="page-container">
-        <div id="page-title">
+  <div id="page-container">
+        <!--<div id="page-title">
           <span class="left">{% block left_btn %}{% endblock %}</span>
-          
           <hgroup>
-            <h3>{% block title %} {% endblock %}</h3>
+            <p>{% block title %} {% endblock %}</p>
           </hgroup>
           <span class="right">{% block right_btn %}{% endblock %}</span>
-        </div>
+        </div>-->
         
         <div id="content">
           {% block content %} {% endblock %}
         </div>
-  </container>
+  </div>
 
 </body>
 </html>

@@ -100,6 +100,18 @@
     padding:4px 10px;
   }
   
+  .btn{
+    width:auto;
+  }
+  
+  .article-list{
+    flex-flow:row;
+  }
+  
+  .form-item{
+    display:block;
+  }
+  
   .user{
     float:right;
     right:15px;
