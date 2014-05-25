@@ -91,7 +91,9 @@ canvas:active{
 
 #header-logo{
   display:flex;
+  display:-webkit-flex;
   flex-flow:row;
+  -webkit-flex-flow:row;
   height:50px;
 }
 
@@ -103,6 +105,8 @@ canvas:active{
 
 #header-logo h3{
   flex:1;
+  -webkit-flex:1;
+  
   padding:15px;
   color:#222;
 }
@@ -218,7 +222,9 @@ canvas:active{
 
 .mobile-icons{
   display:flex;
+  display:-webkit-flex;
   flex-flow:row;
+  -webkit-flex-flow:row;
 }
 
 .mobile-icon{
@@ -277,21 +283,27 @@ canvas:active{
   padding-left:35px;
   font-size:16px;
   margin:13px 5px;
+  flex:1;
   -webkit-flex:1;
 }
 
 [row],.row{
   display:flex;
+  display:-webkit-flex;
   flex-flow:row;
+  -webkit-flex-flow:row;
 }
 
 [col],.col{
   display:flex;
+  display:-webkit-flex;
   flex-flow:column;
+  -webkit-flex-flow:column;
 }
 
 [flex],.flex{
   flex:1;
+  -webkit-flex:1;
 }
 
 .span1{
@@ -320,6 +332,10 @@ canvas:active{
   margin-bottom:10px;
   font-size:22px;
   font-weight:600;
+}
+
+.desktop-content{
+  display:none;
 }
 
 #content .scroll-vertical{
@@ -383,7 +399,9 @@ aside.blog-filter .category{
 
 .article-list{
   display:flex;
+  display:-webkit-flex;
   flex-flow:column;
+  -webkit-flex-flow:column;
 }
 
 .byline{
@@ -465,17 +483,21 @@ aside.blog-filter .category{
 .form-item{
   margin:10px;
   display:flex;
+  display:-webkit-flex;
   flex-flow:column;
+  -webkit-flex-flow:column;
 }
 
 .form-item .title{
   font-weight:700;
   padding:2px;
   flex:1;
+  -webkit-flex:1;
 }
 
 .form-item input{
   flex:1;
+  -webkit-flex:1;
 }
 
 .fullspan{

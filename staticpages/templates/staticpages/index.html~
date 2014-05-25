@@ -34,6 +34,9 @@
       </div>
       
       <div class="col content-column">
+        <div class="title">
+          <p>Filter</p>
+        </div>
         <!--<img src="{% static 'img/ubuntu-desktop.svg' %}"/>-->
         <div href="{% url 'blog:filter' '57' %}" class="ajax-include"></div>
       </div>
