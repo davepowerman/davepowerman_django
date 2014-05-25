@@ -9,33 +9,32 @@
     <ul class="list-ui"> 
     {% for article in blog.article_set.all %}
       <li>
-        <div class="row-li"> 
-          <div >    
-            <div>
-              <a href="{% url 'blog:read' article.id %}" class="thumbnail thumbnail-lg">
-                  <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
-              </a>
-            </div>
-            
-            <div class="flex desc">
-              <h4> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
-              <p class="byline">{{ article.date }}</p>
-              <p>posted under <a href="{% url 'blog:filter' article.category.id %}">{{ article.category.name }}</a></p>
-              <p max-length="100">{{ article.body }}</p>
-            </div>
-            
-             <div class="controls" col>
-              <p col><a href="{% url 'blog:delete' article.id %}" class="btn btn-error">Delete</a></p>
-              <!--<p col><a href="{% url 'blog:read' article.id %}" class="btn">Open</a></p>-->
-            </div>  
-          </div>       
+        <div class="row-li">   
+          <div>
+            <h4 class="mobile-content title"> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
+            <a href="{% url 'blog:read' article.id %}" class="thumbnail thumbnail-lg">
+                <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />                
+            </a>
+          </div>
+          
+          <div class="flex desc">
+            <h4 class="desktop-content title"> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
+            <p class="byline">{{ article.date }}</p>
+            <p>posted under <a href="{% url 'blog:filter' article.category.id %}">{{ article.category.name }}</a></p>
+            <p max-length="100">{{ article.body }}</p>
+          </div>
+          
+           <div class="controls" col>
+            <p col><a href="{% url 'blog:delete' article.id %}" class="btn btn-error">Delete</a></p>
+            <!--<p col><a href="{% url 'blog:read' article.id %}" class="btn">Open</a></p>-->
+          </div>        
         </div>
       </li>
       {% endfor %}
     </ul> 
     
     <div class="aside-container">
-      <aside class="blog-filter">
+      <aside class="blog-filter desktop-content">
         <h3>Categories</h3>
         {% if not categories %}<h4>no categories</4>{% endif %}
         {% for category in categories %}

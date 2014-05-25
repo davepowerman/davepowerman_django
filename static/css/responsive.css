@@ -24,25 +24,31 @@
 
   #header-main{
     border-bottom:1px solid #ccc;
+    height:102px;
+  }
+  
+  #header-container{
+    
   }
 
   #header-main .header-inner{
     background:#fff;
     max-width:1170px;
-    border-bottom:2px solid #2c0;
+    border-bottom:0;
   }
 
-  #header-main nav{
+  #nav-main{
     max-width:1170px;
     margin:0 auto;
+    border-top:2px solid #2c0;
   }
 
-  #header-main nav > ul{
+  #nav-main ul{
     max-height:100px;
   }
   
 
-  #header-main nav > ul > li{
+  #nav-main > ul > li{
     width:auto;
     border:0;
   }
@@ -76,11 +82,27 @@
     margin:0 auto;
   }
   
+  #content{
+    padding:20px 0;
+  }
+  
   #page-title{
     display:none;
   }
   
+  .row-li{
+    display:flex;
+    display:-webkit-flex;
+    flex-flow:row;
+    -webkit-flex-flow:row;
+  }
+  
   .row-li .thumbnail{
+    display:block;
+    width:128px;
+  }
+  
+  .row-li .desc{
     display:block;
   }
   
@@ -109,6 +131,14 @@
   }
   
   .form-item{
+    display:block;
+  }
+  
+  .mobile-content{
+    display:none;
+  }
+  
+  .desktop-content{
     display:block;
   }
   

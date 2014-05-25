@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from blog.models import Blog, Article
 from blog.forms import ArticleForm
 from posts.models import Comment, Reply, Category
@@ -8,7 +9,7 @@ from posts.models import Comment, Reply, Category
 def index(request):
   blog = Blog.objects.get(id=1)
   blog.article_set = blog.article_set.order_by('date')
-  categories = Category.objects.all()
+  categories = Category.objects.filter(parent=None)
   context = {'blog':blog,"categories":categories}
   return render(request,'blog/index.html',context)
 
@@ -59,3 +60,8 @@ def delete(request, article_id):
     article = Article.objects.get(id=article_id)
     article.delete()
     return redirect('blog:index')
+    
+def get_categories(request):
+  if request.is_ajax():
+    categories = [c.name for c in Category.objects.all()]
+    return HttpResponse(categories)

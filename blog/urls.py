@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^/categories/(?P<category_id>[0-9]+)$',    'blog.views.filter', name='filter'),
     url(r'^/(?P<article_id>[0-9]+)$', 'blog.views.read',   name='read'),
     url(r'^/(?P<article_id>[0-9]+)/delete$', 'blog.views.delete', name='delete'),
+    #url(r'^/get-categories$', 'blog.views.get_categories', name='get_categories'),
 )

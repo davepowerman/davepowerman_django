@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from blog.models import Blog, Article
 from blog.forms import ArticleForm
 from posts.models import Comment, Reply, Category
@@ -59,3 +60,10 @@ def delete(request, article_id):
     article = Article.objects.get(id=article_id)
     article.delete()
     return redirect('blog:index')
+    
+def get_categories(request):
+  if request.is_ajax():
+    categories = [c.name for c in Category.objects.all()]
+    return HttpResponse(categories)
+  else:
+    return redirect('/')

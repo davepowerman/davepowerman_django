@@ -2,7 +2,7 @@ $(document).ready(function(){
     console.log('ready state:',ready);
     setShade(0);
     
-    initWidgets;
+    initWidgets();
 });
 
 function setShade(visible) {
@@ -37,4 +37,11 @@ function initWidgets(){
       $(obj).text($(obj).text().slice(0,$(obj).attr('max-length')) + '...')
     }
   }); 
+  
+  $target = $('.context-variable')
+  $target.each(function(i,obj){
+    if($(obj).text().length >= $(obj).attr('max-length')){
+      $(obj).text($(obj).text().slice(0,$(obj).attr('max-length')) + '...')
+    }
+  });
 }
