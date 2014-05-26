@@ -18,9 +18,10 @@
     
       <div class="col content-column">
         <div class="title">
-          <p>News</p>
+          <p>Products</p>
         </div>
-        <img src="{% static 'img/ubuntu-desktop.svg' %}"/>
+        <canvas class="loader"></canvas>
+        <img src="{% static 'img/ubuntu-touch.jpg' %}"/>
       </div>
       <div class="col content-column">
         <div class="title">
