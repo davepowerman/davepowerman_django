@@ -15,11 +15,17 @@
   
   <div class="fullspan mobile-content">
     <div class="row scroll-vertical">
+    
       <div class="col content-column">
         <div class="title">
           <p>News</p>
         </div>
-        <!--<img src="{% static 'img/ubuntu-desktop.svg' %}"/>-->
+        <img src="{% static 'img/ubuntu-touch.jpg' %}"/>
+      </div>
+      <div class="col content-column">
+        <div class="title">
+          <p>News</p>
+        </div>
         <div href="{% url 'blog:index' %}" class="ajax-include"></div>
       </div>
       

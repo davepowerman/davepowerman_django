@@ -48,7 +48,7 @@
   }
   
 
-  #nav-main nav > ul > li{
+  #nav-main > ul > li{
     width:auto;
     border:0;
   }

@@ -107,7 +107,7 @@ canvas:active{
   flex:1;
   -webkit-flex:1;
   
-  padding:15px;
+  padding:15px 0;
   color:#222;
 }
 

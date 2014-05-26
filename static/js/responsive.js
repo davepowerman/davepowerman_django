@@ -1,7 +1,6 @@
 ready = false;
 
 $(document).ready(function(){
-  console.log('responsive.js begin');
   device = function(){
     this.size = 0;
     this.group = '';
@@ -37,32 +36,11 @@ $(document).ready(function(){
     if(Device.size<=sizes.MOBILE_PORTRAIT){
       Device.group = groups.MOBILE;
       Device.orientation = orientations.PORTRAIT;
-      
-      var $target = $('.ajax-include[href]');
-      $target.each(function(i,obj){
-        var $obj = $(obj);
-        $.ajax({
-          url:$obj.attr('href'),
-          type:'GET',
-          success:function(response){
-            template = $(response).find('#content');
-            $obj.html(template);
-            initWidgets();
-            console.log('ajax-include executed');
-          },
-          error:function(response){
-            console.log('ajax-include request failed with response:',response)
-          }
-        });
-      });
-      //ready = true;
     }
     
     if(Device.size>=sizes.MOBILE_LANDSCAPE){
       Device.group = groups.MOBILE; 
       Device.orientation = orientations.LANDSCAPE;
-      
-      
     }
     
     if(Device.size>=sizes.TABLET_PORTRAIT){
@@ -132,7 +110,5 @@ $(document).ready(function(){
           scrollLeft: $(this).scrollLeft()-($(this).find('.content-column').width())*swipePercentage
       },swipeTime);
   });*/
-  
-  console.log('responsive.js end');
 });
 
