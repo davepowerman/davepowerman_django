@@ -68,7 +68,7 @@ function TagModifiers(){
     },
     
     {
-      type:'render',
+      type:'reload',
       callback:function(){
         $('img').each(function(i,obj){
           Widgets().imageLoader(obj);
@@ -92,69 +92,13 @@ function Widgets(){
   var self = this;
   
   self.imageLoader = function(element){
-    var $img = $(element);
-    // a callibrate func for change range of numbers
-    
-    
-    (function(){
-      Math.getInRange=function (x, arr) {// arr = [x1,x2,y1,y2] // x is input and new y return
-        return ((arr[3] - arr[2]) * (x - arr[0])) / (arr[1] - arr[0]) + arr[2];
-      }
-      
-      if(!$('canvas.loader')[0])
-        return false;
-      
-	    $('canvas.loader').each(function(i,obj){
-	      var canvas = obj;
-	      canvas.width=50;
-	      canvas.height=50;
-		    var ctx = canvas.getContext("2d"),
-		      width = canvas.width,			// width of canvas element
-		      height = canvas.height,			// height of canvas element
-		      d2r = Math.PI/180,				// tranform degree to radian
-		      degshift = 90,
-		      startArc = -1*degshift*d2r,		
-		      density = 10,       			// numbers of circles that shaped the loader
-		      trackAngle = 360/density,
-		      tracksShift = 0,				// used for shifting the shape it's set to zero for default
-		      frame = 20,						// frame per second(frame rate)
-		      x = width/2, 					// x position center of official circle 
-		      y = height/2, 					// y position center of official circle 
-		      R = 10, 						// radius of official circle
-		      r = 3,  						// radius of small circles
-		      h = 120;					    // h=hue in hsl model color
-
-		      canvas.style.background='transparent';	//change the canvas background to transparent
-
-      //draw circle with specefic x=postion on x axis , y=position on y axis  , r=radis and c=color with hsl , o=opacity
-	      var drawCircle = function(x,y,r,c,o){
-		      ctx.fillStyle=c;
-		      ctx.globalAlpha=o;
-		      ctx.beginPath();
-		      ctx.arc(x,y,r,startArc,360*d2r);
-		      ctx.fill();
-	      },
-
-	      drawMultipleCircles = function(){
-		      ctx.clearRect(0,0,width,height);
-		      if (tracksShift==density) tracksShift=0;
-		      var shiftingAngle=tracksShift*trackAngle;
-		      for(var i=360-shiftingAngle ; i >= 0-shiftingAngle ; i-=trackAngle){
-		      drawCircle(x+Math.sin(i*d2r)*R,y+Math.cos(i*d2r)*R,r,'hsl('+h+',100%,'+Math.getInRange(i,[360-shiftingAngle,0-shiftingAngle,50,45])+'%)',Math.getInRange(i,[360-shiftingAngle,0-shiftingAngle,0.01,0.9]));
-		      }
-		      tracksShift++; 
-	      }
-
-	      setInterval(drawMultipleCircles,1000/frame);
-	      });
-      })();
-	    
-	    
+    var $img = $(element);	    
     
     if($img.width()*$img.height()>=Math.pow(50,2)){
       $img.hide();
       $img.after('<canvas class="loader"></canvas>');
-      $img.ready(function(){
+      canvasLoader($img.next());
+      $img.next().hover(function(){
         console.log('Image loaded:',$img.attr('href'));
         $img.next().remove();
         $img.fadeIn();
