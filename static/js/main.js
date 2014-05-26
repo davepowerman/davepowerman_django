@@ -151,13 +151,13 @@ function Widgets(){
 	    
 	    
     
-    if($img.width()*$img.height()>=Math.pow(50,2) || 1){
+    if($img.width()*$img.height()>=Math.pow(50,2)){
       $img.hide();
       $img.after('<canvas class="loader"></canvas>');
       $img.ready(function(){
         console.log('Image loaded:',$img.attr('href'));
         $img.next().remove();
-        $img.show();
+        $img.fadeIn();
       });
     }
   }
