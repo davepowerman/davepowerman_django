@@ -96,12 +96,12 @@ function Widgets(){
     
     if($img.width()*$img.height()>=Math.pow(50,2)){
       $img.hide();
-      $img.after('<div><canvas class="loader"></canvas>Image loading</div>');
-      canvasLoader($img.next().find('canvas'));
-      $img.next().hover(function(){
+      $img.after('<canvas class="loader"></canvas>');
+      canvasLoader($img.next());
+      $img.on('load1',function(){
         console.log('Image loaded:',$img.attr('href'));
         $img.next().remove();
-        $img.fadeIn();
+        $img.fadeIn(1000);
       });
     }
   }

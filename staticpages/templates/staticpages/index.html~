@@ -12,8 +12,9 @@
     
     <a href="#"><button class="btn btn-success" >Sign up now!</button></a>
   </div>
-  <p max-length="12">this sentence should be broken!</p>
+  
   <div class="fullspan mobile-content">
+    <img src="{% static 'img/big-image.png' %}"/>
     <div class="row scroll-vertical">
     
       <div class="col content-column">
