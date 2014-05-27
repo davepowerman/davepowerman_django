@@ -58,7 +58,7 @@ input:focus{
 }
 
 input[type="text"]{
-  padding:
+
 }
 
 canvas{
@@ -72,7 +72,6 @@ canvas:active{
 
 canvas.loader{
   border:0;
-  z-index:10;
 }
 
 #header-main{
@@ -323,12 +322,7 @@ canvas.loader{
 }
 
 .content-column{
-  background:#fff;
   min-width:85%;
-  border:1px solid #000;
-  border-radius:4px;
-  box-shadow:0 0 7px 3px #888;
-  margin:7px;
 }
 
 .content-column > .title{
@@ -342,14 +336,33 @@ canvas.loader{
   font-weight:600;
 }
 
+.content-column .item{
+  border:1px solid #444;
+  box-shadow:0 0 10px 3px #777;
+  background:#fff;
+  padding:5px;
+  margin:20px 0;
+}
+
+.content-column .item .arrow{
+  position:absolute;
+  right:0;
+  bottom:0;
+  line-height:20px;
+  padding:6px 10px 14px 10px;
+  background:#290;
+  z-index:10;
+  color:#fff;
+  font-weight:300;
+  font-size:50px;
+}
+
 .desktop-content{
   display:none;
 }
 
 #content .scroll-vertical{
-  padding:7px;
-  min-width:100%;
-  background-color:#bbb;
+  background-color:#ccc;
 }
 
 .list-ui{  
@@ -360,7 +373,6 @@ canvas.loader{
 .row-li{
   background:#fff;
   border-bottom:1px solid #dfdfdf;
-  padding:20px 0;
 }
 
 .row-li:nth-child(even){
@@ -378,15 +390,15 @@ canvas.loader{
 
 .row-li .mobile-content.title{
   position:absolute;
-  bottom:1px;
-  left:1px;
+  bottom:0px;
+  left:0px;
   color:#fff;
   width:100%;
-  padding:10px 0;
-  text-align:center;
-  border-radius:0 0 3px 3px;
-  background:rgba(0,0,0,0.7);
+  padding:10px 10px;
+  text-size:18px;
+  background:rgba(0,0,0,0.6);
   z-index:10;
+  box-sizing:border-box;
 }
 
 .row-li:hover .mobile-content.title{
@@ -397,7 +409,13 @@ canvas.loader{
   color:#fff;
 }
 
+
 .row-li .desc{
+  padding:0 3px 0 20px;
+  
+}
+
+.row-li .info{
   padding:0 3px 0 20px;
   display:none;
 }
@@ -581,9 +599,9 @@ aside.blog-filter .category{
 
 .thumbnail:hover{
   cursor:pointer;
-  outline:none;
+  /*outline:none;
   border:1px solid rgba(30,150,255,0.7);
-  box-shadow:0px 0px 1px 1px rgba(30,150,255,0.7);
+  box-shadow:0px 0px 1px 1px rgba(30,150,255,0.7);*/
 }
 
 .thumbnail img,

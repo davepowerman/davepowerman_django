@@ -8,23 +8,28 @@
   <div class="row article-list">
     <ul class="list-ui"> 
     {% for article in blog.article_set.all %}
-      <li>
+      <li class="item">
         <div class="row-li">   
-          <div>
-            <h4 class="mobile-content title"> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
-            <a href="{% url 'blog:read' article.id %}" class="thumbnail thumbnail-lg">
+          <div class="thumbnail thumbnail-lg">
+           
+            <a href="{% url 'blog:read' article.id %}">
+                <h4 class="mobile-content title" max-length="20">{{ article.name }}</h4>
+                <span class="arrow">&rsaquo;</span>
                 <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />                
             </a>
           </div>
           
-          <div class="flex desc">
+          <div class="flex info">
             <h4 class="desktop-content title"> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
             <p class="byline">{{ article.date }}</p>
             <p>posted under <a href="{% url 'blog:filter' article.category.id %}">{{ article.category.name }}</a></p>
+          </div>
+          
+          <div class="flex desc">
             <p max-length="100">{{ article.body }}</p>
           </div>
           
-           <div class="controls" col>
+          <div class="controls desktop-content" col>
             <p col><a href="{% url 'blog:delete' article.id %}" class="btn btn-error">Delete</a></p>
             <!--<p col><a href="{% url 'blog:read' article.id %}" class="btn">Open</a></p>-->
           </div>        

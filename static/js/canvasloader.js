@@ -5,14 +5,15 @@ window.requestAnimFrame = (function(callback) {
   };
 })();
 
-function initArcs() {
+function initArcs(size) {
   var arcs = [];
   var arc_count = 10;
+  if(size) arc_count = size;
 
   // create arc_count arcs
   for( n = 0; n < arc_count; n++) {
-    var radius = (n) * 3;
-    var width = (n) * 2;
+    var radius = (n+1) * 3;
+    var width = (n+1) * 2;
     // between 0 and 2 PI
     var startingAngle = Math.random() * 2 * Math.PI;
     // 1 to 3 revolutions per second
@@ -77,15 +78,15 @@ function animate(canvas, arcs, lastTime) {
     animate(canvas, arcs, time);
   });
 }
-function canvasLoader(canvas){
+function canvasLoader(canvas,size){
   var canvas = $(canvas)[0];
   $(canvas).wrap('<div style="text-align:center;"></div>')
-  $(canvas).parent().append('<br>Image loading...')
+  //$(canvas).parent().append('<br>Image loading...')
   canvas.width=80;
   canvas.height=80;
   //$(canvas).css('border-radius','40px');
   
-  var arcs = initArcs();
+  var arcs = initArcs(size);
   var time = (new Date()).getTime();
   animate(canvas, arcs, time);
 }

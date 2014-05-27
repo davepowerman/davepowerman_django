@@ -98,10 +98,10 @@ function Widgets(){
       $img.hide();
       $img.after('<canvas class="loader"></canvas>');
       canvasLoader($img.next());
-      $img.on('load1',function(){
-        console.log('Image loaded:',$img.attr('href'));
+      $img[0].ready(function(){
+        //console.log('Image loaded:',$img.attr('href'));
         $img.next().remove();
-        $img.fadeIn(1000);
+        $img.fadeIn();
       });
     }
   }
