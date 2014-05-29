@@ -16,34 +16,32 @@
   <div class="fullspan mobile-content">
     
     <div class="row scroll-vertical">
-    
       <div class="col content-column">
         <div class="title">
-          <p>Products</p>
-        </div>
-        <img src="{% static 'img/ubuntu-touch.jpg' %}"/>
-      </div>
-      <div class="col content-column">
-        <div class="title">
-          <p>News</p>
+          <p>Make It</p>
         </div>
         <div href="{% url 'blog:index' %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
-          <p>Apps</p>
+          <p>Effective Tools</p>
         </div>
-        <!--<img src="{% static 'img/ubuntu-desktop.svg' %}"/>-->
-        <div href="{% url 'apps:index' %}" class="ajax-include"></div>
+        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
-          <p>Filter</p>
+          <p>Fix It</p>
         </div>
-        <!--<img src="{% static 'img/ubuntu-desktop.svg' %}"/>-->
-        <div href="{% url 'blog:filter' '57' %}" class="ajax-include"></div>
+        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
+      </div>
+      
+      <div class="col content-column">
+        <div class="title">
+          <p>Understand It</p>
+        </div>
+        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
       </div>
     </div>
   </div>

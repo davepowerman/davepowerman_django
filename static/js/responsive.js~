@@ -1,7 +1,8 @@
 ready = false;
+STATIC_URL = '/static/';
+MEDIA_URL = '/media/';
 
 $(document).ready(function(){
-  console.log('responsive.js begin');
   device = function(){
     this.size = 0;
     this.group = '';
@@ -65,21 +66,18 @@ $(document).ready(function(){
   // header toggle buttons
 
   $('.menu-toggle').click(function(){
-    //if($('#nav-account ul').hasClass('showing'))
-    //  $('#nav-account ul').toggleClass('showing');
     $('#nav-main > ul').toggleClass('showing');
+    if($('#nav-main > ul').hasClass('showing')){
+      $('.menu-toggle img').replaceWith('<button class="btn">back</button>');
+    } else {
+      $('.menu-toggle .btn').replaceWith('<img src="'+STATIC_URL+'img/menu.png"/>');
+    }
   });
   
   $('.account-toggle').click(function(){
     //if($('#nav-main ul').hasClass('showing'))
     //  $('#nav-main ul').toggleClass('showing');
     $('#nav-account').toggleClass('showing');   
-  });
-  
-  
-  
-  $('.search-toggle').click(function(){
-    $('header .searchbar').toggleClass('showing');
   });
   
   

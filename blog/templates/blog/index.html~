@@ -13,7 +13,7 @@
           <div class="thumbnail thumbnail-lg">
            
             <a href="{% url 'blog:read' article.id %}">
-                <h4 class="mobile-content title" max-length="25">{{ article.name }}</h4>
+                <h4 class="mobile-content title" max-length="20">{{ article.name }}</h4>
                 <span class="arrow">&rsaquo;</span>
                 <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />                
             </a>

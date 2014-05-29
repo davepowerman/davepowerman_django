@@ -1,7 +1,15 @@
 $(document).ready(function(){
     setShade(0);
-    TagModifiers().run();
     
+    mobileSwipe = MobileSwipe();
+    mobileSwipe.widgets.swipeNav('.scroll-vertical');
+    
+    tagModifiers = TagModifiers();
+    tagModifiers.run();
+    
+    widgets = Widgets();
+    
+    //$('*').prop('draggable','false');
     
 });
 
@@ -42,7 +50,7 @@ function TagModifiers(){
             url:$obj.attr('href'),
             type:'GET',
             success:function(response){
-              template = $(response).find('#content');
+              template = $(response).find('#content').html();
               $obj.html(template);
               self.run('render');
             },
@@ -104,6 +112,11 @@ function Widgets(){
         $img.fadeIn();
       });
     }
+  }
+  
+  self.swipeNav = function(element){
+    MobileSwipe().widgets.swipeNav(element);
+    
   }
   
   return self;

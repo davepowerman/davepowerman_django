@@ -1,4 +1,6 @@
 ready = false;
+STATIC_URL = '/static/';
+MEDIA_URL = '/media/';
 
 $(document).ready(function(){
   device = function(){
@@ -64,9 +66,12 @@ $(document).ready(function(){
   // header toggle buttons
 
   $('.menu-toggle').click(function(){
-    //if($('#nav-account ul').hasClass('showing'))
-    //  $('#nav-account ul').toggleClass('showing');
     $('#nav-main > ul').toggleClass('showing');
+    if($('#nav-main > ul').hasClass('showing')){
+      $('.menu-toggle img').replaceWith('<button class="btn">back</button>');
+    } else {
+      $('.menu-toggle .btn').replaceWith('<img src="'+STATIC_URL+'img/menu.png"/>');
+    }
   });
   
   $('.account-toggle').click(function(){
@@ -76,18 +81,12 @@ $(document).ready(function(){
   });
   
   
-  
-  $('.search-toggle').click(function(){
-    $('header .searchbar').toggleClass('showing');
-  });
-  
-  
   $('#nav-account').removeClass('showing');
   
   $('.user').click(function(){
     $('#nav-account').toggleClass('showing');
     
-    if(!isMobile && 0){
+    if(Device.group=='MOBILE' && 0){
       $('.user').mouseleave(function(){
         if($('#nav-account').hasClass('showing'))
         $('#nav-account').toggleClass('showing');

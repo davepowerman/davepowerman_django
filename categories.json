@@ -1,72 +1,23 @@
 {
   "categories": [
     {
-      "Electronics": [
-        {
-          "Arduino": []
-        },
-        
-        {
-          "Robotics": []
-        }
-      ]
+      "Make it": []
     },
     
     {
-      "Cooking": [
-        {
-          "Cookware": []
-        },
-        
-        {
-          "Recepies": []
-        }
-      ]
+      "Effective Tools": []
     },
     
     {
-      "Web Design": [
-        {
-          "jQuery": [
-          ]
-        },
-        
-        {
-          "HTML5": []
-        }
-      ]
+      "Fix it": []
     },
     
     {
-      "Video Production": []
+      "Understand it": []
     },
     
     {
-      "DIY": []
-    },
-    
-    {
-      "Science": []
-    },
-    
-    {
-      "Tutorials": [
-        {
-          "Videos": []
-        },
-        
-        {
-          "Articles": []
-        }
-      ]
-    },
-    
-    {
-      "Machining": []
-    },
-    
-    {
-      "Programming": []
+      "Buy it": []
     }
   ]
 }

@@ -1,0 +1,9 @@
+{% csrf_token %}
+
+<div class="form-item">
+  <input type="text" placeholder="{{ placeholder|default:'Search' }}"/> 
+</div>
+
+<div class="form-item">
+  <button onclick="submit()" class="btn btn-success">{{ submit|default:"Search" }}</button>
+</div>
