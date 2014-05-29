@@ -21,21 +21,20 @@ var MobileSwipe = function(){
         },
         touchDown = false;
       
-      $target.on('touchstart',function(e){
-        
+      $target.on('touchstart mousedown',function(e){
         touchDown = true;
         
-        alert(e.touches.length);
+        alert('total number of touchers is ',e.touches.length);
         if(e.touches.length > 0){
           var touch = e.touches[0];
           event.start.x = parseInt(touch.clientX);
           event.start.y = parseInt(touch.clientY);
           event.startLeft = $target.scrollLeft();
-          e.preventDefault();
+          //e.preventDefault();
         }
       });
       
-      $target.on('touchend',function(e){
+      $target.on('touchend up',function(e){
         touchDown = false;
         if(e.touches.length > 0){
           var touch = e.touches[0];
@@ -46,11 +45,11 @@ var MobileSwipe = function(){
           if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
             callback(event);
           }
-          e.preventDefault();
+          //e.preventDefault();
         }
       });
       
-      $target.on('touchmove',function(e){
+      $target.on('touchmove mousemove',function(e){
         if(touchDown && e.touches.length){
           var touch = e.touches[0];
           var x = parseInt(touch.clientX),
@@ -58,7 +57,7 @@ var MobileSwipe = function(){
           event.velocity = x - event.start.x;
           $target.scrollLeft(event.startLeft - event.velocity);
         }
-        e.preventDefault();
+        //e.preventDefault();
       });
     },
   };
