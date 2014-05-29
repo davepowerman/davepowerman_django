@@ -22,9 +22,10 @@ var MobileSwipe = function(){
         touchDown = false;
       
       $target.on('touchstart',function(e){
-        alert('touchstart');
+        
         touchDown = true;
         var touch = e.touches[0];
+        alert(e.touches[0].clientX);
         event.start.x = parseInt(touch.clientX);
         event.start.y = parseInt(touch.clientY);
         event.startLeft = $target.scrollLeft();
