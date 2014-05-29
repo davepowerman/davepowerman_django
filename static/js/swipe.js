@@ -21,9 +21,8 @@ var MobileSwipe = function(){
         },
         touchDown = false;
       
-      //$target.on('dragstart dragend drag drop',function(e){e.preventDefault();});
-      
       $target.on('touchstart',function(e){
+        alert('touchstart');
         touchDown = true;
         var touch = e.touches[0];
         event.start.x = parseInt(touch.clientX);
@@ -67,7 +66,7 @@ var MobileSwipe = function(){
       // disable dragging of images
       $nav.on('dragstart', 'img', function(event) { event.preventDefault();});
       // disable scrolling; it will be handled by swiping instead
-      //$nav.css({'overflow':'hidden','height':'100%'});
+      $nav.css({'overflow':'hidden','height':'100%'});
       
       console.log(children.outerWidth())
       
