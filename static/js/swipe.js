@@ -23,18 +23,18 @@ var MobileSwipe = function(){
       
       //$target.on('dragstart dragend drag drop',function(e){e.preventDefault();});
       
-      $target.on('touchstart mousedown',function(e){
+      $target.on('touchstart',function(e){
         touchDown = true;
-        var touch = e.changedTouches[0];
+        var touch = e.touches[0];
         event.start.x = parseInt(touch.clientX);
         event.start.y = parseInt(touch.clientY);
         event.startLeft = $target.scrollLeft();
         e.preventDefault();
       });
       
-      $target.on('touchend mouseup',function(e){
+      $target.on('touchend',function(e){
         touchDown = false;
-        var touch = e.changedTouches[0];
+        var touch = e.touches[0];
         event.end.x = parseInt(touch.clientX);
         event.end.y = parseInt(touch.clientY);
         if(event.start.x>event.end.x) event.direction = 'right';
@@ -45,9 +45,9 @@ var MobileSwipe = function(){
         e.preventDefault();
       });
       
-      $target.on('touchmove mousemove',function(e){
+      $target.on('touchmove',function(e){
         if(touchDown){
-          var touch = e.changedTouches[0];
+          var touch = e.touches[0];
           var x = parseInt(touch.clientX),
             y = parseInt(touch.clientY);
           event.velocity = x - event.start.x;
