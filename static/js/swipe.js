@@ -25,7 +25,7 @@ var MobileSwipe = function(){
         
         touchDown = true;
         var touch = e.touches[0];
-        alert(e.touches[0].clientX);
+        alert(toString(e.touches[0]));
         event.start.x = parseInt(touch.clientX);
         event.start.y = parseInt(touch.clientY);
         event.startLeft = $target.scrollLeft();
