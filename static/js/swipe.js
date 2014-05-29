@@ -24,29 +24,34 @@ var MobileSwipe = function(){
       $target.on('touchstart',function(e){
         
         touchDown = true;
-        var touch = e.touches[0];
-        alert(toString(e.touches[0]));
-        event.start.x = parseInt(touch.clientX);
-        event.start.y = parseInt(touch.clientY);
-        event.startLeft = $target.scrollLeft();
-        e.preventDefault();
+        
+        alert(e.touches.length);
+        if(e.touches.length > 0){
+          var touch = e.touches[0];
+          event.start.x = parseInt(touch.clientX);
+          event.start.y = parseInt(touch.clientY);
+          event.startLeft = $target.scrollLeft();
+          e.preventDefault();
+        }
       });
       
       $target.on('touchend',function(e){
         touchDown = false;
-        var touch = e.touches[0];
-        event.end.x = parseInt(touch.clientX);
-        event.end.y = parseInt(touch.clientY);
-        if(event.start.x>event.end.x) event.direction = 'right';
-        else event.direction = 'left';
-        if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
-          callback(event);
+        if(e.touches.length > 0){
+          var touch = e.touches[0];
+          event.end.x = parseInt(touch.clientX);
+          event.end.y = parseInt(touch.clientY);
+          if(event.start.x>event.end.x) event.direction = 'right';
+          else event.direction = 'left';
+          if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
+            callback(event);
+          }
+          e.preventDefault();
         }
-        e.preventDefault();
       });
       
       $target.on('touchmove',function(e){
-        if(touchDown){
+        if(touchDown && e.touches.length){
           var touch = e.touches[0];
           var x = parseInt(touch.clientX),
             y = parseInt(touch.clientY);
