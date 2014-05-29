@@ -26,31 +26,34 @@ var MobileSwipe = function(){
       $target.on('touchstart mousedown',function(e){
         touchDown = true;
         var touch = e.changedTouches[0];
-        event.start.x = touch.clientX;
-        event.start.y = touch.clientY;
+        event.start.x = parseInt(touch.clientX);
+        event.start.y = parseInt(touch.clientY);
         event.startLeft = $target.scrollLeft();
+        e.preventDefault();
       });
       
       $target.on('touchend mouseup',function(e){
         touchDown = false;
         var touch = e.changedTouches[0];
-        event.end.x = touch.clientX;
-        event.end.y = touch.clientY;
+        event.end.x = parseInt(touch.clientX);
+        event.end.y = parseInt(touch.clientY);
         if(event.start.x>event.end.x) event.direction = 'right';
         else event.direction = 'left';
         if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
           callback(event);
         }
+        e.preventDefault();
       });
       
       $target.on('touchmove mousemove',function(e){
         if(touchDown){
           var touch = e.changedTouches[0];
-          var x = touch.clientX,
-            y = touch.clientY;
+          var x = parseInt(touch.clientX),
+            y = parseInt(touch.clientY);
           event.velocity = x - event.start.x;
           $target.scrollLeft(event.startLeft - event.velocity);
         }
+        e.preventDefault();
       });
     },
   };
