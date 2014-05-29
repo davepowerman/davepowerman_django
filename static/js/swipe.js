@@ -67,7 +67,7 @@ var MobileSwipe = function(){
       // disable dragging of images
       $nav.on('dragstart', 'img', function(event) { event.preventDefault();});
       // disable scrolling; it will be handled by swiping instead
-      $nav.css({'overflow':'hidden','height':'100%'});
+      //$nav.css({'overflow':'hidden','height':'100%'});
       
       console.log(children.outerWidth())
       
