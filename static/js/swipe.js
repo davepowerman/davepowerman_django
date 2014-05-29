@@ -25,15 +25,17 @@ var MobileSwipe = function(){
       
       $target.on('touchstart mousedown',function(e){
         touchDown = true;
-        event.start.x = e.clientX;
-        event.start.y = e.clientY;
+        var touch = e.changedTouches[0];
+        event.start.x = touch.clientX;
+        event.start.y = touch.clientY;
         event.startLeft = $target.scrollLeft();
       });
       
       $target.on('touchend mouseup',function(e){
         touchDown = false;
-        event.end.x = e.clientX;
-        event.end.y = e.clientY;
+        var touch = e.changedTouches[0];
+        event.end.x = touch.clientX;
+        event.end.y = touch.clientY;
         if(event.start.x>event.end.x) event.direction = 'right';
         else event.direction = 'left';
         if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
@@ -43,8 +45,9 @@ var MobileSwipe = function(){
       
       $target.on('touchmove mousemove',function(e){
         if(touchDown){
-          var x = e.clientX,
-            y = e.clientY;
+          var touch = e.changedTouches[0];
+          var x = touch.clientX,
+            y = touch.clientY;
           event.velocity = x - event.start.x;
           $target.scrollLeft(event.startLeft - event.velocity);
         }
