@@ -3,13 +3,25 @@
 {% block title %}{{ article.name }}{% endblock %}
 
 {% block content %}
-  <div row>
-    <span class="thumbnail thumbnail-sm">
-        <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
-    </span>
-    <h1>{{ article.name }}</h1>
-    <p class="byline">by <a href="#">"Anonymous Author"</a> | {{ article.date }}</p>
-  </div>
-  
-  <p>{{ article.body }}</p>
+  <article col>
+    <header class="blog-header">
+      <div class="share">
+        <button class="btn">SHARE</button>
+      </div>
+      {{ article.category }}
+      <div row>
+        <div class="thumbnail thumbnail-lg">
+            <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
+        </div>
+        <hgroup flex>
+          <h3>{{ article.name }}</h3>
+        </hgroup>
+      </div>
+      <div>
+        <p class="">by <a href="#">Anonymous Author</a> | {{ article.date }}</p>
+        <p>posted under {{ article.category }}</p>
+      </div>
+    </header>
+    <p>{{ article.body }}</p>
+  </article>
 {% endblock %}

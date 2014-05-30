@@ -24,38 +24,41 @@ var MobileSwipe = function(){
       $target.on('touchstart mousedown',function(e){
         touchDown = true;
         
-        alert('total number of touchers is ',e.touches.length);
-        if(e.touches.length > 0){
-          var touch = e.touches[0];
-          event.start.x = parseInt(touch.clientX);
-          event.start.y = parseInt(touch.clientY);
+        //alert('total number of touchers is ');
+        //if(e.touches.length > 0){
+          //var touch = e.touches[0];
+          event.start.x = /*parseInt(touch.clientX)*/e.clientX;
+          event.start.y = /*parseInt(touch.clientY)*/e.clientY;
           event.startLeft = $target.scrollLeft();
           //e.preventDefault();
-        }
+        //}
       });
       
-      $target.on('touchend up',function(e){
+      $target.on('touchend mouseup',function(e){
         touchDown = false;
-        if(e.touches.length > 0){
-          var touch = e.touches[0];
-          event.end.x = parseInt(touch.clientX);
-          event.end.y = parseInt(touch.clientY);
+        //if(e.touches.length > 0){
+          //var touch = e.touches[0];
+          event.end.x = /*parseInt(touch.clientX)*/e.clientX;
+          event.end.y = /*parseInt(touch.clientY)*/e.clientY;
           if(event.start.x>event.end.x) event.direction = 'right';
           else event.direction = 'left';
           if(Math.abs(event.start.y-event.end.y)<35 && Math.abs(event.start.x-event.end.x)>=50){
             callback(event);
           }
           //e.preventDefault();
-        }
+        //}
       });
       
       $target.on('touchmove mousemove',function(e){
-        if(touchDown && e.touches.length){
-          var touch = e.touches[0];
-          var x = parseInt(touch.clientX),
-            y = parseInt(touch.clientY);
+        if(touchDown /*&& (e.touches.length)*/){
+          //var touch = e.touches[0];
+          var x = /*parseInt(touch.clientX)*/e.clientX,
+            y = /*parseInt(touch.clientY)*/e.clientY;
           event.velocity = x - event.start.x;
           $target.scrollLeft(event.startLeft - event.velocity);
+          if(Math.abs(event.start.y-y)<35 && Math.abs(event.start.x-x)>=50){
+            //callback(event);
+          }
         }
         //e.preventDefault();
       });
@@ -81,15 +84,16 @@ var MobileSwipe = function(){
           destination;
           
         
-        if(e.direction=='left') {
-          if(currentItem!=0) currentItem -= 1;
+        if(e.direction=='left'){
+          //if(currentItem!=0) currentItem--;
           destination = children.outerWidth(true)*currentItem;
-          console.log(currentItem);
-        } else {
-          if(currentItem!=children.size()-1) currentItem +=1;
+        } else if(e.direction=='right'){
+          if(currentItem!=children.size()-1) currentItem++;
           destination = children.outerWidth(true)*currentItem;
-          console.log(currentItem);
+          
         }
+          
+        console.log(currentItem,e.direction);
           
         $nav.animate({scrollLeft:destination},600,'easeOutQuart',function(){
           console.log('animation complete');

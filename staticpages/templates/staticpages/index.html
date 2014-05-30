@@ -6,11 +6,26 @@
   {% load staticfiles %}
   
   <div class="desktop-content">
-    <div class="message message-success">
-      <p>Welcome to davepowerman.com!</p>
-    </div>
-    
-    <a href="#"><button class="btn btn-success" >Sign up now!</button></a>
+    <article col>
+    <header class="blog-header">
+      <div class="share">
+        <button class="btn">SHARE</button>
+      </div>
+      <div row>
+        <div class="thumbnail thumbnail-lg">
+            <img src="{{ MEDIA_URL }}{{ newest_post.thumbnail }}" />
+        </div>
+        <hgroup flex>
+          <h3>{{ newest_post.name }}</h3>
+        </hgroup>
+      </div>
+      <div>
+        <p class="">by <a href="#">Anonymous Author</a> | {{ newest_post.date }}</p>
+        <p>posted under {{ newest_post.category }}</p>
+      </div>
+    </header>
+    <p>{{ article.body }}</p>
+  </article>
   </div>
   
   <div class="fullspan mobile-content">

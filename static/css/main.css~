@@ -5,7 +5,7 @@
 }
 
 body{
-  font:normal 1em/20px ubuntu, Helvetica;
+  font:normal 0.9em/20px ubuntu, Helvetica;
   color:#444;
   text-align:left;
 }
@@ -46,7 +46,7 @@ input:not([type=file]){
   border-radius:4px;
   background:#fff;
   display:inline-block;
-  border:1px solid #d4d4d4;
+  border:1px solid #ccc;
   padding:6px 6px;
   font-size:16px;
 }
@@ -62,7 +62,7 @@ input[type="text"]{
 }
 
 canvas{
-  border:1px solid #d4d4d4;
+  border:1px solid #ccc;
   cursor:default;
 }
 
@@ -75,20 +75,18 @@ canvas.loader{
 }
 
 #header-main{
-  width:100%;
   height:50px;
 }
 
 #header-container{
   position:fixed;
   width:100%;
-  top:0px;
+  top:0;
   z-index:200;
 }
 
 #header-main .header-inner{
   margin:0 auto;
-  background:/*#33cc22*/#fff;
   background:rgba(255,255,255,0.90);
   border-bottom:1px solid #ddd;
 }
@@ -111,13 +109,14 @@ canvas.loader{
 #header-logo h3{
   flex:1;
   -webkit-flex:1;
-  
+  font-size:18px;
   padding:15px 0;
   color:#222;
 }
 
 
 #nav-main > ul{
+  background:#fff;
   max-height:0px;
   overflow:hidden;
   transition: max-height 0.4s;
@@ -136,7 +135,7 @@ canvas.loader{
   width:100%;
   padding:15px;
   text-align:left;
-  border-bottom:1px solid #d4d4d4;
+  border-bottom:1px solid #ccc;
 }
 
 #nav-main ul li:hover{
@@ -170,7 +169,7 @@ canvas.loader{
 }
 
 #nav-account li.hover{
-  background-color:#d4d4d4;
+  background-color:#ccc;
 }
 
 #main-nav{
@@ -180,15 +179,13 @@ canvas.loader{
 #page-container{
   width:100%;
   margin:0 auto;
-  overflow:hidden;
 }
 
-#page-title{
+/*#page-title{
   padding:10px;
-  color:#000; 
   font-size:20px;
   text-align:center;
-  border-bottom:1px solid #d4d4d4;
+  border-bottom:1px solid #ccc;
 }
 
 #page-title .btn{
@@ -211,12 +208,10 @@ canvas.loader{
   right:5px;
   top:3px;
   z-index:2;
-}
+}*/
 
 #content{
-  max-width:100%;
-  padding:0 20px;
-  margin:0 auto;
+  padding:0 10px;
 }
 
 #footer-main{
@@ -232,6 +227,13 @@ canvas.loader{
   border-top:2px solid #ccc;
   
 }
+
+.blog-header{
+  padding:15px 5px;
+  border-bottom:1px solid #ccc;
+}
+
+.blog-header h3 {}
 
 .shade{
   position:fixed;
@@ -289,6 +291,7 @@ canvas.loader{
 .content-column{
   min-width:75%;
   margin:0 7px;
+  margin-right:100px;
   padding:10px;
   background-color:#000;
   /*padding-top:34px*/
@@ -320,7 +323,6 @@ canvas.loader{
   position:absolute;
   right:0;
   bottom:0;
-  line-height:20px;
   padding:6px 10px 14px 10px;
   background:#290;
   z-index:4;
@@ -334,7 +336,7 @@ canvas.loader{
 }
 
 #content .scroll-vertical{
-  
+  padding:0;
 }
 
 .list-ui{  
@@ -393,7 +395,7 @@ canvas.loader{
 }
 
 aside.blog-filter{
-  border:1px solid #d4d4d4;
+  border:1px solid #ccc;
   border-radius:4px;
 }
 
@@ -403,7 +405,7 @@ aside.blog-filter h3{
 }
 
 aside.blog-filter .category{
-  border-top:1px solid #d4d4d4;
+  border-top:1px solid #ccc;
   padding:15px;
 }
 
@@ -421,10 +423,9 @@ aside.blog-filter .category{
 .btn{
   padding:8px 12px;
   margin:3px 0px;
-  border:1px solid #d4d4d4;
+  border:1px solid #ccc;
   border-radius:4px;
   background:#fff;
-  color:#444;
   width:100%;
   text-decoration:none;
   text-align:center;
@@ -439,13 +440,11 @@ aside.blog-filter .category{
 .btn:hover{
   text-decoration:none;
   background:#e8e8e8;
-  color:#444;
 }
 
 .btn-primary{
   background:#fff;
-  border:1px solid #d4d4d4;
-  color:#444;
+  border:1px solid #ccc;
 }
 
 .btn-primary:hover{
@@ -463,7 +462,6 @@ aside.blog-filter .category{
 .btn-success:hover{
   background:#47a447;
   border:1px solid #398439;
-  color:#fff;
 }
 
 .btn-error{
@@ -475,7 +473,6 @@ aside.blog-filter .category{
 .btn-error:hover{
   background:#d2322d;
   border:1px solid #ac2925;
-  color:#fff;
 }
 
 .btn-warning{
@@ -487,7 +484,6 @@ aside.blog-filter .category{
 .btn-warning:hover{
   background:#ed9c28;
   border:1px solid #d58512;
-  color:#fff;
 }
 
 .form-item{
@@ -557,12 +553,9 @@ aside.blog-filter .category{
 }
 
 .thumbnail{
-  cursor:poiner;
   border:1px solid #d4d4d4;
-  border-radius:0px;
   display:inline-block;
-  transition: all 0.2s;
-  box-shadow:0px 0px 1px 1px rgba(30,150,255,0);
+  transition: 0.2s;
 }
 
 .thumbnail:hover{

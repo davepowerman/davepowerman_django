@@ -1,12 +1,5 @@
 /* Tablet styles:600px - 999px */
 @media screen and (min-width:600px){
-  .mobile-content{
-    display:none;
-  }
-  
-  .desktop-content{
-    display:block;
-  }
 
   .thumbnail-lg{
     width:96px;

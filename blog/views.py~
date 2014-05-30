@@ -65,3 +65,5 @@ def get_categories(request):
   if request.is_ajax():
     categories = [c.name for c in Category.objects.all()]
     return HttpResponse(categories)
+  else:
+    return redirect('/')

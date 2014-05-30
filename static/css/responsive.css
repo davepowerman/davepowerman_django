@@ -18,7 +18,7 @@
 }
 
 /* Full desktop styles:1200px + */
-@media screen and (min-width:1000px){
+@media screen and (min-width:10000px){
   body{
     font-size:1em;
   }
