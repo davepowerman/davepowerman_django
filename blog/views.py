@@ -6,26 +6,28 @@ from posts.models import Comment, Reply, Category
 
 # Create your views here.
 
-def index(request):
-  blog = Blog.objects.get(id=1)
+def index(request,blog_slug):
+  blog = Blog.objects.get(slug=blog_slug)
   blog.article_set = blog.article_set.order_by('date')
-  categories = Category.objects.filter(parent=None)
-  context = {'blog':blog,"categories":categories}
+  context = {"blog":blog}
   return render(request,'blog/index.html',context)
 
-def filter(request,category_id):
+def filter(request,blog_slug,category_id):
+  blog = Blog.objects.get(slug=blog_slug)
   category = Category.objects.get(id=category_id)
-  articles = Article.objects.filter(category=category).order_by('date')
-  context = {'category':category,"articles":articles}
+  articles = blog.article_set.filter(category=category).order_by('date')
+  context = {"blog":blog,"category":category,"articles":articles}
   return render(request,'blog/filter.html',context)
   
-def read(request, article_id):
-  article = Article.objects.get(id=article_id)
-  context = {"article":article}
+def read(request,blog_slug,article_id):
+  blog = Blog.objects.get(slug=blog_slug)
+  article = blog.article_set.get(id=article_id)
+  context = {"blog":blog,"article":article}
   return render(request,'blog/article.html',context)
   
 
-def new(request):
+def new(request,blog_slug):
+  blog = Blog.objects.get(slug=blog_slug)
   form = ArticleForm()
   if request.method=='POST':
     form = ArticleForm(request.POST,request.FILES)
@@ -34,7 +36,6 @@ def new(request):
       category_id = form.cleaned_data['category']
       body = form.cleaned_data['body']
       thumbnail = form.cleaned_data['thumbnail']
-      blog = Blog.objects.get(id=1)
       category = Category.objects.get(id=category_id)
       
       article = Article()
@@ -46,11 +47,11 @@ def new(request):
         article.thumbnail = thumbnail
       article.save()
       
-      return redirect('blog:index')
-  context = {"form":form}
+      return redirect('blog:index',blog_slug=blog_slug)
+  context = {"blog":blog,"form":form}
   return render(request,'blog/new.html',context)  
 
-def delete(request, article_id):
+def delete(request, blog_slug,article_id):
   if request.method=='POST':
     article = Article.objects.get(id=article_id)
     article.delete()

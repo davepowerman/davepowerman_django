@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     
     url('^apps', include('apps.urls', namespace='apps')),
     
-    url('^blog', include('blog.urls', namespace='blog')),
+    url('^(?P<blog_slug>[^/]+)', include('blog.urls', namespace='blog')),
 ) 
 
 urlpatterns += static.static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

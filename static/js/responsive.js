@@ -34,10 +34,14 @@ $(document).ready(function(){
   function respond(){
     if(!Device) Device = device();
     Device.size = $(document).width();
+    
+    // resize list columns
+    $('.list.tilemode .item').width((100/Math.floor(Device.size/sizes.DESKTOP*5)-4).toString()+'%');
   
     if(Device.size<=sizes.MOBILE_PORTRAIT){
       Device.group = groups.MOBILE;
       Device.orientation = orientations.PORTRAIT;
+      
     }
     
     if(Device.size>=sizes.MOBILE_LANDSCAPE){

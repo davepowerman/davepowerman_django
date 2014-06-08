@@ -42,17 +42,18 @@
           
           <div class="mobile-icons">
             <div class="mobile-icon menu-toggle">
-              <img src="{% static 'img/menu.png' %}"/>
+              <span class="glyph-menu"></span>
             </div>
           </div>
         </div>
         <nav  id="nav-main">
           <ul class="desktop-content">
             <li><a href="{% url 'static:index' %}">Home</a></li>
-            <li><a href="{% url 'static:index' %}">Challenge</a></li>
+            <li><a href="{% url 'static:index' %}">Projects</a></li>
+            <li><a href="{% url 'blog:index' 'make-it' %}">Make It</a></li>
+            <li><a href="{% url 'blog:index' 'learn-it' %}">Learn It</a></li>
+            <li><a href="{% url 'blog:index' 'news' %}">News</a></li>
             <li><a href="{% url 'apps:index' %}">Apps</a></li>
-            <li><a href="{% url 'static:index' %}">Videos</a></li>
-            <li><a href="{% url 'blog:index' %}">News</a></li>
             <li class="user"> 
               <a href="#">Your Account &dtrif;</a>
               <ul id="nav-account">
@@ -73,7 +74,7 @@
             <a href="#"><li>Favorite topics</li></a> 
             <li><h3>Topics</h3></li>
             {% for category in CATEGORIES %}
-              <a href="{% url 'blog:filter' category.id %}"><li>{{ category.name }}</li></a>  
+              <a href="{% url 'blog:filter' 3 category.id %}"><li>{{ category.name }}</li></a>  
             {% endfor %}
           </ul>
         </nav>
@@ -81,18 +82,25 @@
     </div>
   </header>
   
+  <div class="messages">
+    <ul>
+      {% for message in messages %}
+      <li class="message {% for tag in message.tags %} {{ tag }}{% endfor %}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
   <div class="shade"></div>
   
-  <div id="page-container" >       
-        <div id="content">
-          {% block content %} {% endblock %}
-        </div>
+  <div id="page-container" >     
+    <div id="content">
+      {% block content %} {% endblock %}
+    </div>
   </div>
   
   <footer id="footer-main">
     <div id="footer-inner" row>
-      <div flex><p>Total: $84.95</p></div>
-      <div><button class="btn btn-success">Checkout</button></div>
+      <p>&copy; 2014 davepowerman LCC | <a>About us</a> | <a>Contact us</a></p>
     </div>
   </footer>
 

@@ -1,23 +1,41 @@
 {
+  "main_topics": [
+    {
+      "Projects": []
+    },
+    
+    {
+      "Make It": []
+    },
+    
+    {
+      "Learn It": []
+    },
+    
+    {
+      "Fix It": []
+    }
+  ],
+  
   "categories": [
     {
-      "Make it": []
+      "Technology": []
     },
     
     {
-      "Effective Tools": []
+      "Medical": []
     },
     
     {
-      "Fix it": []
+      "Pets": []
     },
     
     {
-      "Understand it": []
+      "Web Design": []
     },
     
     {
-      "Buy it": []
+      "Music": []
     }
   ]
 }

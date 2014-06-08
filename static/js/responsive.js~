@@ -34,10 +34,14 @@ $(document).ready(function(){
   function respond(){
     if(!Device) Device = device();
     Device.size = $(document).width();
+    
+    
+    $('.list.tilemode .item').width((100/Math.floor(Device.size/sizes.DESKTOP*5)-4).toString()+'%');
   
     if(Device.size<=sizes.MOBILE_PORTRAIT){
       Device.group = groups.MOBILE;
       Device.orientation = orientations.PORTRAIT;
+      
     }
     
     if(Device.size>=sizes.MOBILE_LANDSCAPE){
@@ -86,7 +90,7 @@ $(document).ready(function(){
   $('.user').click(function(){
     $('#nav-account').toggleClass('showing');
     
-    if(!isMobile && 0){
+    if(Device.group=='MOBILE' && 0){
       $('.user').mouseleave(function(){
         if($('#nav-account').hasClass('showing'))
         $('#nav-account').toggleClass('showing');

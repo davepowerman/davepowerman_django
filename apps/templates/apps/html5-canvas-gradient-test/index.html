@@ -1,0 +1,75 @@
+<style type="text/css">
+</style>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+$(document).ready(function(){
+  // DOM ready
+  var c = $('#canvas')[0];
+  var ctx = c.getContext('2d');
+    
+  c.width=100;
+  c.height=100;
+  var speed = ~~(Math.random()*50) + 50;
+  
+  function rad(degrees){
+    return degrees * (Math.PI / 180);
+  }
+  
+  function draw(){
+    
+    
+    
+    ctx.strokeStyle = '#000000';
+    ctx.fillStyle = '#33ff22';
+    //ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(45,10);
+    ctx.lineTo(45,50);
+    ctx.arc(50,50,5,rad(180),0,true);
+    ctx.lineTo(55,10);
+    ctx.arc(50,10,5,0,rad(180),true);
+    ctx.closePath();
+    //ctx.stroke();
+    ctx.fill();
+    
+    ctx.lineWidth = 9;
+    ctx.strokeStyle = '#33ff22';
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    moveTo(50,80);
+    ctx.arc(50,50,30,rad(90),rad(225));
+    ctx.moveTo(50,80);
+    ctx.arc(50,50,30,rad(90),rad(315),true);
+    //ctx.moveTo(50,90);
+    //ctx.arc(50,50,40,rad(90),rad(225));
+    //ctx.moveTo(50,90);
+    //ctx.arc(50,50,40,rad(90),rad(315),true);
+    //ctx.closePath();
+    ctx.stroke();
+    //ctx.fill();
+    
+    ctx.save();
+    ctx.strokeStyle = '#000000';
+    ctx.moveTo(50,50);
+    ctx.lineTo(0,0);
+    ctx.translate(c.width/2,c.height/2);
+    ctx.rotate(rad(1));
+    ctx.translate(-c.width/2,-c.height/2);
+    ctx.restore();
+  }
+  
+  function clear(){
+    ctx.clearRect(0,0,100,100);    
+  }
+  
+  function update(){
+    clear();
+    draw();
+    window.requestAnimFrame(update);
+    //setTimeout(update, 1000 / 80);
+  }
+  update();
+});
+</script>
+
+

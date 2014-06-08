@@ -23,4 +23,16 @@
     </header>
     <p>{{ article.body }}</p>
   </article>
+  
+  <div class="comments">
+    <h2>{{ article.comment_set.all|length }} comment{{ article.comment_set.all|pluralize }}</h2>
+    <ul class="list listmode">
+      {% for comment in comments %}
+        {% include 'posts/comment_li.html' %}
+      {% endfor %}
+    </ul>
+    <form action="#" method="get">
+      {% include 'posts/comment_form.html' %}
+    </form>
+  </div>
 {% endblock %}

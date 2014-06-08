@@ -24,46 +24,32 @@
         <p>posted under {{ newest_post.category }}</p>
       </div>
     </header>
-    <p>{{ article.body }}</p>
+    <p>{{ newest_post.body }}</p>
   </article>
   </div>
   
   <div class="fullspan mobile-content">
     
-    <div class="row scroll-vertical">
+    <div class="row scroll-vertical">      
       <div class="col content-column">
         <div class="title">
           <p>Make it</p>
         </div>
-        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
+        <div href="{% url 'blog:filter' 'make-it' 6 %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
-          <p>Effective Tools</p>
+          <p>News</p>
         </div>
-        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
+        <div href="{% url 'blog:filter' 'news' 9 %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
-          <p>Fix it</p>
+          <p>Learn it</p>
         </div>
-        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
-      </div>
-      
-      <div class="col content-column">
-        <div class="title">
-          <p>Understand it</p>
-        </div>
-        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
-      </div>
-      
-      <div class="col content-column">
-        <div class="title">
-          <p>Buy it</p>
-        </div>
-        <div href="{% url 'blog:index' %}" class="ajax-include"></div>
+        <div href="{% url 'blog:filter' 'learn-it' 7 %}" class="ajax-include"></div>
       </div>
     </div>
   </div>

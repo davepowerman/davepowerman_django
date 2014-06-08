@@ -1,5 +1,11 @@
+from django.core.urlresolvers import resolve
 from posts.models import Category
 
-def categories(request):
+def global_vars(request):
   categories = Category.objects.all()
-  return {"CATEGORIES":categories}
+  namespace = resolve(request.path).namespace
+  context = {
+    "CATEGORIES": categories,
+    "NAMESPACE": namespace,
+  }
+  return context

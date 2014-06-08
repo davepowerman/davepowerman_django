@@ -6,29 +6,9 @@
   <h1>{{ category.name }}</h1>
   <p>{{ articles|length }} article{{ articles|pluralize }}</p>
   
-  <ul class="list-ui"> 
+  <ul class="list tilemode"> 
     {% for article in articles %}
-      <li>
-        <div class="row-li"> 
-          <div row>    
-            <div>
-              <a href="{% url 'blog:read' article.id %}" class="thumbnail thumbnail-lg">
-                  <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
-              </a>
-            </div>
-            
-            <div class="flex desc">
-              <h4> <a href="{% url 'blog:read' article.id %}">{{ article.name }}</a></h4>
-              <p class="byline">{{ article.date }}</p>
-            </div>
-            
-             <div class="controls" col>
-              <p col><a href="{% url 'blog:delete' article.id %}" class="btn btn-error">Delete</a></p>
-<!--p col><a href="{% url 'blog:read' article.id %}" class="btn">Open</a></p>-->
-            </div>  
-          </div>       
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
+    {% include 'posts/post_li.html' with post=article %}
+    {% endfor %}
+  </ul>
 {% endblock %}

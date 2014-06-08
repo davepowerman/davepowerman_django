@@ -1,0 +1,8 @@
+{% csrf_token %}
+<p>Share your own thoughts!</p>
+<div class="form-item">
+  <textarea name="body"></textarea>
+</div>
+<div class="form-item">
+  <input type="submit" class="btn" value="{{ submit|default:'Comment' }}"/>
+</div>

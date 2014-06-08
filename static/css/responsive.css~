@@ -1,6 +1,10 @@
 /* Tablet styles:600px - 999px */
 @media screen and (min-width:600px){
 
+  .btn{
+    width:auto;
+  }
+
   .thumbnail-lg{
     width:96px;
     height:96px;
@@ -18,9 +22,13 @@
 }
 
 /* Full desktop styles:1200px + */
-@media screen and (min-width:1000px){
+@media screen and (min-width:1200px){
   body{
     font-size:1em;
+  }
+  
+  p{
+    font-size:0.8em;
   }
 
   #header-main{

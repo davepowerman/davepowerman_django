@@ -9,6 +9,8 @@ $(document).ready(function(){
     
     widgets = Widgets();
     
+    initButtons();
+    
     //$('*').prop('draggable','false');
     
 });
@@ -50,7 +52,7 @@ function TagModifiers(){
             url:$obj.attr('href'),
             type:'GET',
             success:function(response){
-              template = $(response).find('#content').html();
+              template = $(response).find('.list').html();
               $obj.html(template);
               self.run('render');
             },
@@ -120,4 +122,16 @@ function Widgets(){
   }
   
   return self;
+}
+
+function initButtons(){
+  $('.btn.tilesmode').click(function(){
+    $('.list.tilemode').removeClass('tilemode');
+    $('.list').addClass('listmode');
+  });
+  
+  $('.btn.listmode').click(function(){
+    $('.list.listmode').removeClass('listmode');
+    $('.list').addClass('tilemode');
+  });
 }

@@ -58,10 +58,14 @@ def make_category(category,parent_name):
 # begin doing stuff
 
 # create blog
-print "creating blog \"News\""
-if not "News" in [b.name for b in Blog.objects.all()]:
-  blog = Blog(name="News")
-  blog.save()
+blogs = ["News","Make It","Learn It"]
+
+[b.delete() for b in Blog.objects.all()]
+
+for blog in blogs:
+  if not blog in [b.name for b in Blog.objects.all()]:
+    print "creating blog \"%s\"" % blog
+    Blog(name=blog).save()
 
 # create categories
 f = open(CATEGORIES_FILE,'r')

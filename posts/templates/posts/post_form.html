@@ -1,0 +1,22 @@
+{% csrf_token %}
+<div class="form-item">
+  <p class="title">Name</p>
+  {{ form.name }}
+</div>
+
+<div class="form-item">
+  <p class="title">Body</p>
+  {{ form.body }}
+</div>
+
+<div class="form-item">
+  <p class="title">Category</p>
+  {{ form.category }}
+</div>
+
+<div class="form-item">
+  <p class="title">Thumbnail</p>
+  {{ form.thumbnail }}
+</div>
+
+<input type="submit" class="btn"/>

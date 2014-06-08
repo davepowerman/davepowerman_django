@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<li class="item">
+  
+  <div class="thumbnail thumbnail-lg">
+    <a href="{% url NAMESPACE|add:':read' blog.slug post.id %}">
+      <img src="{{MEDIA_URL }}{{ post.thumbnail }}"/>
+    </a>
+  </div>
+  <h2><a href="{% url NAMESPACE|add:':read' blog.slug post.id %}">{{ post.name }}</a></h2>
+  <h4></h4>
+  <p class="byline">{{ post.date }} | <a href="#">{{ post.comment_set.all|length }} comment{{ post.comment_set.all|pluralize }}</a></p>
+  <p class="desc" max-length="150">{{ post.body }}</p>
+  
+  {% if post.category %}
+  <div class="tags">
+    <span class="">tags</span>
+    <a class="tag" href="{% url NAMESPACE|add:':filter' blog.slug post.category.id %}">{{ post.category.name }}:{{ post.category.id }}</a>
+  </div>
+  {% endif %}
+</li>

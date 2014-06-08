@@ -8,7 +8,6 @@
       <div class="share">
         <button class="btn">SHARE</button>
       </div>
-      {{ article.category }}
       <div row>
         <div class="thumbnail thumbnail-lg">
             <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
@@ -22,6 +21,18 @@
         <p>posted under {{ article.category }}</p>
       </div>
     </header>
-    <p>{{ article.body }}</p>
+    <p>{{ article.body|safe }}</p>
   </article>
+  
+  <div class="comments">
+    <h2>{{ article.comment_set.all|length }} comment{{ article.comment_set.all|pluralize }}</h2>
+    <ul class="list listmode">
+      {% for comment in comments %}
+        {% include 'posts/comment_li.html' %}
+      {% endfor %}
+    </ul>
+    <form action="#" method="get">
+      {% include 'posts/comment_form.html' %}
+    </form>
+  </div>
 {% endblock %}
