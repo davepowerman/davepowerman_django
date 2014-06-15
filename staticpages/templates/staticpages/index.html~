@@ -7,13 +7,13 @@
   
   <div class="desktop-content">
     <article col>
-    <header class="blog-header">
+    <header class="feed-header">
       <div class="share">
         <button class="btn">SHARE</button>
       </div>
       <div row>
         <div class="thumbnail thumbnail-lg">
-            <img src="{{ MEDIA_URL }}{{ newest_post.thumbnail }}" />
+            <img src="{{ MEDIA_URL }}{{ newest_post.image }}" />
         </div>
         <hgroup flex>
           <h3>{{ newest_post.name }}</h3>
@@ -35,21 +35,21 @@
         <div class="title">
           <p>Make it</p>
         </div>
-        <div href="{% url 'blog:filter' 'make-it' 6 %}" class="ajax-include"></div>
+        <div href="{% url 'articles:filter' 'make-it' 6 %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
           <p>News</p>
         </div>
-        <div href="{% url 'blog:filter' 'news' 9 %}" class="ajax-include"></div>
+        <div href="{% url 'articles:filter' 'news' 9 %}" class="ajax-include"></div>
       </div>
       
       <div class="col content-column">
         <div class="title">
           <p>Learn it</p>
         </div>
-        <div href="{% url 'blog:filter' 'learn-it' 7 %}" class="ajax-include"></div>
+        <div href="{% url 'articles:filter' 'learn-it' 7 %}" class="ajax-include"></div>
       </div>
     </div>
   </div>

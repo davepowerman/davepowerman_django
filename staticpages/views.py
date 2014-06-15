@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from blog.models import Article
+from articles.models import Article
 
 def index(request):
-    newest_post = Article.objects.order_by('date')[0]
-    context = {"newest_post":newest_post}
-    return render(request,'staticpages/index.html',context)
+  newest_post = Article.objects.order_by('date')[0]
+  context = {"newest_post":newest_post}
+  return render(request,'staticpages/index.html',context)

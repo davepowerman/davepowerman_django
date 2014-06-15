@@ -5,8 +5,7 @@ import json
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "davepowerman.settings")
 
-from blog.models import Blog
-from posts.models import Category
+from articles.models import Feed, Category
 
 # settings
 CATEGORIES_FILE = os.path.join(settings.BASE_DIR,'categories.json')
@@ -57,15 +56,15 @@ def make_category(category,parent_name):
 
 # begin doing stuff
 
-# create blog
-blogs = ["News","Make It","Learn It"]
+# create feeds
+feeds = ["News","Make It","Learn It"]
 
-[b.delete() for b in Blog.objects.all()]
+[b.delete() for b in Feed.objects.all()]
 
-for blog in blogs:
-  if not blog in [b.name for b in Blog.objects.all()]:
-    print "creating blog \"%s\"" % blog
-    Blog(name=blog).save()
+for feed in feeds:
+  if not feed in [b.name for b in Feed.objects.all()]:
+    print "creating feed \"%s\"" % feed
+    Feed(name=feed).save()
 
 # create categories
 f = open(CATEGORIES_FILE,'r')

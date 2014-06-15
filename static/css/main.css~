@@ -82,6 +82,10 @@ canvas.loader{
   border:0;
 }
 
+nav ul{
+  list-style:none;
+}
+
 #header-main{
   height:50px;
 }
@@ -148,6 +152,10 @@ canvas.loader{
 
 #nav-main ul li:hover{
   background:#dff0d8;
+}
+
+#nav-main a{
+  text-decoration:none;
 }
 
 #nav-account{

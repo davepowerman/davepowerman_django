@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block content %}
+  <article col>
+    <header class="blog-header">
+      <div class="share">
+        <button class="btn">SHARE</button>
+      </div>
+      <div row>
+        <div class="thumbnail thumbnail-lg">
+            <img src="{{ MEDIA_URL }}{{ article.thumbnail }}" />
+        </div>
+        <hgroup flex>
+          <h3>{{ article.name }}</h3>
+        </hgroup>
+      </div>
+      <div>
+        <p class="">by <a href="#">Anonymous Author</a> | {{ article.date }}</p>
+        <p>posted under {{ article.category }}</p>
+      </div>
+    </header>
+    <p>{{ article.body }}</p>
+  </article>
+  
+  <div class="comments">
+    <h2>{{ article.comment_set.all|length }} comment{{ article.comment_set.all|pluralize }}</h2>
+    <ul class="list listmode">
+      {% for comment in comments %}
+        {% include 'articles/comment_li.html' %}
+      {% endfor %}
+    </ul>
+    <form action="#" method="get">
+      {% include 'articles/comment_form.html' %}
+    </form>
+  </div>
+{% endblock %}

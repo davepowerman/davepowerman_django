@@ -58,7 +58,7 @@ def make_category(category,parent_name):
 # begin doing stuff
 
 # create blog
-blogs = ["Make It","Learn It"]
+blogs = ["News","Make It","Learn It"]
 
 [b.delete() for b in Blog.objects.all()]
 

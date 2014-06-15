@@ -50,9 +50,9 @@
           <ul class="desktop-content">
             <li><a href="{% url 'static:index' %}">Home</a></li>
             <li><a href="{% url 'static:index' %}">Projects</a></li>
-            <li><a href="{% url 'blog:index' 'make-it' %}">Make It</a></li>
-            <li><a href="{% url 'blog:index' 'learn-it' %}">Learn It</a></li>
-            <li><a href="{% url 'blog:index' 'news' %}">News</a></li>
+            <li><a href="{% url 'articles:index' 'make-it' %}">Make It</a></li>
+            <li><a href="{% url 'articles:index' 'learn-it' %}">Learn It</a></li>
+            <li><a href="{% url 'articles:index' 'news' %}">News</a></li>
             <li><a href="{% url 'apps:index' %}">Apps</a></li>
             <li class="user"> 
               <a href="#">Your Account &dtrif;</a>
@@ -74,7 +74,7 @@
             <a href="#"><li>Favorite topics</li></a> 
             <li><h3>Topics</h3></li>
             {% for category in CATEGORIES %}
-              <a href="{% url 'blog:filter' 3 category.id %}"><li>{{ category.name }}</li></a>  
+              <a href="{% url 'feed:filter' 'make-it' category.slug %}"><li>{{ category.name }}</li></a>  
             {% endfor %}
           </ul>
         </nav>
@@ -100,7 +100,7 @@
   
   <footer id="footer-main">
     <div id="footer-inner" row>
-      <p>&#99; &copy; 2014 davepowerman LCC | <a>About us</a> | <a>Contact us</a></p>
+      <p>&copy; 2014 davepowerman LCC | <a>About us</a> | <a>Contact us</a></p>
     </div>
   </footer>
 

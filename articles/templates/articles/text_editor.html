@@ -1,0 +1,194 @@
+<style>
+.text-editor-container{
+  margin:20px;
+}
+
+.text-editor{
+  width:100%;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+
+.text-editor nav{
+  background:linear-gradient(#ddd,#aaa);
+  background:-webkit-linear-gradient(#ddd,#aaa);
+  border-radius:4px 4px 0 0;
+  padding:2px;
+}
+
+.text-editor nav ul{
+  display:flex;
+  flex-flow:row;
+}
+
+.text-editor nav li .btn{
+  width:32px;
+  height:32px;
+  padding:3px;
+}
+
+.text-editor nav .separator{
+  height:24px;
+  width:1px;
+  margin:7px 3px;
+  background:#999;
+}
+
+.text-editor .editor{
+  min-width:100%;
+  max-width:100%;
+  height:300px;
+  cursor:text;
+  border-radius:0 0 4px 4px;
+}
+
+.text-editor .editor:focus{
+  outline:none;
+}
+
+.text-editor .editor .cursor{
+  height:16px;
+  width:1px;
+  margin:0px 0px;
+  background:#444;
+  display:inline-block;
+}
+
+.text-editor .editor .cursor.off{
+  background:transparent;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+  var keysDown = {};
+  var focus = false;
+  var caps = false;
+  var keymap = {
+    8:'backspace', 9:'tab',       13:'enter',
+    16:'shift',    17:'ctrl',     20:'caps',
+    32:'space',    37:'left',     38:'right',
+    89:'up',       40:'down',
+    
+    48:"0",        49:"1",
+    50:"2",        51:"3",        52:"4",
+    53:"5",        54:"6",        55:"7",
+    56:"8",        57:"9",        65:"a",
+    66:"b",        67:"c",        68:"d",
+    69:"e",        70:"f",        71:"g",
+    72:"h",        73:"i",        74:"j",
+    75:"k",        76:"l",        77:"m",
+    78:"n",        79:"o",        80:"p",
+    81:"q",        82:"r",        83:"s", 
+    84:"t",        85:"u",        86:"v",
+    87:"w",        88:"x",        89:"y",
+    90:"z"
+  };
+  var chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+  
+  console.log(keymap);
+
+  var text_editors = $('.text-editor-container');
+  text_editors.each(function(i,o){
+    var text_editor = $(o);
+    var nav = text_editor.find('nav');
+    var editor = text_editor.find('.editor');
+    var cursor = editor.find('.cursor');
+    cursorPosition = 0;
+    
+    editor.attr('tabindex','0');
+    flashCursor();
+    
+    $(window).on('keydown',function(e){
+      if(focus){
+        e.preventDefault();
+        key = keymap[e.keyCode];
+        keysDown[keymap[e.keyCode]] = true;
+        console.log(keysDown);
+        
+        if(chars.match(key) && chars.match(key)[0]){
+          if(caps == !keysDown['shift']){
+            key = key.toUpperCase();
+          }
+          insertChar(key);
+        } else if(key=="caps"){
+          if(caps){
+            caps = false;
+          } else {
+            caps = true;
+          }
+        } else if(key=="backspace"){
+          deleteChar();
+        } else if(key=="enter"){
+          insertChar('\n');
+        }
+         else if(key=="space"){
+          insertChar(' ');
+        }
+      }       
+    });
+    
+    $(window).on('keyup',function(e){
+      e.preventDefault();
+      delete keysDown[keymap[e.keyCode]];
+      console.log(keysDown);
+    })
+    
+    editor.focus(function(){
+      focus = true;
+    });
+    
+    editor.blur(function(){
+      focus = false;
+      cursor.addClass('off');
+    });
+    
+    function flashCursor(){
+      if(focus){
+        cursor.toggleClass('off');
+      }
+      setTimeout(flashCursor, 400);
+    }
+    
+    function moveCursor(position){
+      //cursor.removeClass('off');
+      cursor_html = cursor[0].outerHTML;
+      halfs = editor.html().split(cursor_html);
+      str = halfs[0] + halfs[1];
+      one = str.slice(0,position);
+      two = str.slice(position+1,-1);
+      //console.log('position:',position,'\noriginal:',str,'\none:',one,'\ncursor:',cursor_html,'\ntwo:',two,'\nall:',one+cursor_html+two);
+      editor.html(one+cursor_html+two);
+      cursor = editor.find('.cursor');
+    }
+    
+    function insertChar(c){
+      editor.html(editor.html()+c);
+      cursorPosition += 1;
+      cursor = editor.find('.cursor');
+      moveCursor(cursorPosition);
+    }
+    
+    function deleteChar(){
+      editor.html(editor.html().slice(0,editor.html().length-1));
+      if(cursorPosition>0) cursorPosition -= 1;
+      cursor = editor.find('.cursor');
+      moveCursor(cursorPosition);
+    }
+  });
+});
+</script>
+
+<div class="text-editor-container">
+  <div class="text-editor">
+    <nav>
+      <ul>
+        <li><button class="btn"><b>B</b></button></li>
+        <li><button class="btn"><i>i</i></button></li>
+        <li class="separator"></li>
+      </ul>
+    </nav>
+    <textarea name="{{ input }}" hidden></textarea>
+    <div class="editor"><div class="cursor off"></div></div>
+  </div>
+</div>

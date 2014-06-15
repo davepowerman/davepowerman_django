@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block content %}
+  <a href="{% url 'articles:new' feed.slug %}"><button class="btn btn-success">Create new article</button></a>
+  <div class="row article-list">
+    <ul class="list tilemode"> 
+      {% for article in feed.article_set.all %}
+      {% include 'articles/article_li.html' %}
+      {% endfor %}
+    </ul> 
+    
+    <div class="aside-container">
+      <aside class="blog-filter desktop-content">
+        <h3>Categories</h3>
+          {% for category in CATEGORIES %}
+          <p class="category"><a href="{% url 'articles:filter' feed.slug category.slug %}">{% if category.parent %}-> {% endif %}{{ category.name }}</a></p>
+          {% endfor %}
+      </aside>
+    </div>
+  </div>
+  
+{% endblock %}

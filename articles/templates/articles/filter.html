@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ feed.name }}{% endblock %}
+
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  <p>{{ articles|length }} article{{ articles|pluralize }}</p>
+  
+  <ul class="list tilemode"> 
+    {% for article in articles %}
+      {% include 'articles/article_li.html'%}
+    {% endfor %}
+  </ul>
+{% endblock %}
